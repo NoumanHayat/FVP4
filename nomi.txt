@@ -1,0 +1,79 @@
+import React, {useState} from 'react';
+import {View, Text} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+import {homeStyle as styles} from '../Style/index';
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from 'react-native-chart-kit';
+const HomeScreen = () => {
+  const [suggestedCalories, setSuggestedCalories] = useState(1050);
+  const [maxValue, setMaxValue] = useState(400);
+  const minValue = 80;
+
+function* yLabel() {
+  yield* [0, 90, 100];
+}
+  const datapoints = [89, 88, 96, 97,80,55,75];
+  const barData = {
+    labels: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+    datasets: [
+      {
+        data: datapoints,
+      },
+    ],
+  };
+  // const barData = {
+  //   labels: ['Calories', 'Protein', 'Carbs', 'Fat'],
+  //   datasets: [
+  //     {
+  //       data: datapoints,
+  //     },
+  //   ],
+  // };
+
+  function* yLabel() {
+    yield* [
+      parseInt(0),
+      parseInt(maxValue / 4),
+      parseInt(maxValue / 3),
+      parseInt(maxValue / 2),
+      parseInt(maxValue),
+    ];
+  }
+  const yLabelIterator = yLabel();
+  return (
+    <View style={styles.container}>
+      <View style={styles.calories}>
+        <Text style={styles.suggestedCaloriesTitle}>
+          Today suggested calories {suggestedCalories}
+        </Text>
+      </View>
+      <View>
+        <BarChart
+          // style={graphStyle}
+          data={barData}
+          width={Dimensions.get('window').width}
+          height={Dimensions.get('window').height / 2}
+          yAxisLabel={''}
+          chartConfig={{
+            backgroundColor: '#e26a00',
+            backgroundGradientFrom: '#725B49',
+            backgroundGradientTo: '#8A7869',
+            formatYLabel: () => yLabelIterator.next().value,
+            decimalPlaces: 2, // optional, defaults to 2dp
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            style: {
+              borderRadius: 16,
+            },
+          }}
+        />
+      </View>
+    </View>
+  );
+};
+export default HomeScreen;

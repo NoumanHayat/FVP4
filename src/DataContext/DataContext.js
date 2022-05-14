@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ip = '172.26.48.1';
-// var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjAzMzlhYjIxNmJiZjE4NmZmOTdjZCIsImlhdCI6MTY1MTU5MDkwMywiZXhwIjoxNjU5MzY2OTAzfQ.d8z9880lVEYufq0_0eMEDZ4r0VPuDl675HoLm2RbhI8';
+const ip = '172.27.192.1';
+// var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjAzMzlhYjIxNmJiZjE4NmZmOTdjZCIsImlhdCI6MTY1MDQ4MzE5NiwiZXhwIjoxNjU4MjU5MTk2fQ.b3PibfH5oa86FFGq97SxHLZsqhwZpkuie1CW8KSi14c';
 var userId = '';
 var token = ' ';
 
@@ -321,7 +321,8 @@ const todayDiaryDetail = async props => {
 
     return response.data.reasult;
   } catch (error) {
-    alert(error.message);
+    alert("todayDiaryDetail");
+    // alert(error.message);
   }
 };
 const currentWeekPercentage = async props => {
@@ -336,7 +337,8 @@ const currentWeekPercentage = async props => {
 
     return response.data;
   } catch (error) {
-    alert(error.message);
+    alert("currentWeekPercentage");
+    // alert(error.message);
   }
 };
 const helpAndSupport = async props => {
@@ -427,6 +429,21 @@ const addDailyWeight = async props => {
     alert(error.message);
   }
 };
+const getDailyWeight = async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/coachingRoute/getDailyWeight`,
+      {
+        token,
+      },
+    );
+    console.log(response.data);
+
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
@@ -439,6 +456,7 @@ export const DataProvider = ({children}) => {
         currentCalories,
         resetPassword,
         forgotPassword,
+        getDailyWeight,
         currentWeekPercentage,
         todayDiaryDetail,
         token,

@@ -26,19 +26,19 @@ import CheckIn2 from './src/Dashboard/Screen/CheckIn/Screen2';
 import CheckIn3 from './src/Dashboard/Screen/CheckIn/Screen3';
 import CheckIn4 from './src/Dashboard/Screen/CheckIn/Screen4';
 import initialCoaching from './src/Dashboard/Screen/CheckIn/initialCoaching';
-import helpSupport from './src/Dashboard/Screen/support/index'
-import DailyWeight from './src/Dashboard/Screen/DailyWeight'
-import checkInHsitory from './src/Dashboard/Screen/checkInHsitory'
+import helpSupport from './src/Dashboard/Screen/support/index';
+import DailyWeight from './src/Dashboard/Screen/DailyWeight';
+import checkInHsitory from './src/Dashboard/Screen/checkInHsitory';
 const Stack = createNativeStackNavigator();
 
-const App = () => { 
+const App = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="DailyWeight" component={DailyWeight} />
+          {/* <Stack.Screen name="DailyWeight" component={DailyWeight} /> */}
 
-        {/* <Stack.Screen name="checkInHsitory" component={checkInHsitory} /> */}
+          {/* <Stack.Screen name="checkInHsitory" component={checkInHsitory} /> */}
           <Stack.Screen name="WelcomePage" component={index} />
           <Stack.Screen name="Login" component={login} />
           <Stack.Screen name="createAccount" component={createAccount} />
@@ -51,7 +51,7 @@ const App = () => {
           <Stack.Screen name="bodyFat" component={bodyFat} />
           <Stack.Screen name="choseGole" component={choseGole} />
           <Stack.Screen
-            name="weight_lose_speed" 
+            name="weight_lose_speed"
             component={weight_lose_speed}
           />
           <Stack.Screen name="Confirm" component={Confirm} />
@@ -62,15 +62,15 @@ const App = () => {
           <Stack.Screen name="Calories" component={Calories} />
           <Stack.Screen name="CheckIn1" component={CheckIn1} />
           <Stack.Screen name="CheckIn2" component={CheckIn2} />
-          <Stack.Screen name="CheckIn3" component={CheckIn3} /> 
+          <Stack.Screen name="CheckIn3" component={CheckIn3} />
           <Stack.Screen name="CheckIn4" component={CheckIn4} />
           <Stack.Screen name="helpSupport" component={helpSupport} />
-          {/* <Stack.Screen name="DailyWeight" component={DailyWeight} /> */}
-
+          <Stack.Screen name="DailyWeight" component={DailyWeight} />
+          <Stack.Screen name="checkInHsitory" component={checkInHsitory} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
-  ); 
+  );
 };
 function AppRetuern() {
   return (

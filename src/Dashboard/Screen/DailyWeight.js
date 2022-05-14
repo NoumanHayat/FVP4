@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react';
+import React,{useState,useContext,useEffect} from 'react';
 import {DailyWeight as Styles} from '../Style/index';
 
 import {View, Text, ScrollView, TouchableOpacity, FlatList} from 'react-native';
@@ -7,9 +7,17 @@ import {DataTable} from 'react-native-paper';
 import DataContext from '../../DataContext/DataContext';
 
 const index = props => {
-  const {addDailyWeight} = useContext(DataContext);
+  const {addDailyWeight,getDailyWeight} = useContext(DataContext);
   const [weight, setWeight]=useState(0);
   const [bodyFat,setBodyFat]=useState(0);
+  const [detail,setDetail]= useState({});
+  useEffect(() => { 
+    async function fetchData() {
+      const a= await getDailyWeight();
+       setDetail(a);
+    }
+    fetchData();
+  }, []);
 
   const history = [
     {
@@ -75,7 +83,7 @@ const index = props => {
             }}
           />
           <Input
-            placeholder="Body Fat (optional)"
+            placeholder="Waist in CM"
             onChangeText={e => {
               setBodyFat(e);
             }}
@@ -101,7 +109,7 @@ const index = props => {
             </DataTable.Header>
             {/* ========================================================== */}
 
-            <FlatList
+            {/* <FlatList
               ItemSeparatorComponent={
                 Platform.OS !== 'android' &&
                 (({highlighted}) => (
@@ -120,13 +128,38 @@ const index = props => {
                   </DataTable.Row>
                 );
               }}
+            /> */}
+
+            {/* //==================================================== */}
+           {/* ========================================================== */}
+
+            <FlatList
+              ItemSeparatorComponent={
+                Platform.OS !== 'android' &&
+                (({highlighted}) => (
+                  <View
+                    style={[Style.separator, highlighted && {marginLeft: 0}]}
+                  />
+                ))
+              }
+              data={detail}
+              renderItem={({item, index, separators}) => {
+                return (
+                  <DataTable.Row>
+                    <DataTable.Cell>{item.Date}</DataTable.Cell>
+                    <DataTable.Cell>{item.bodyFatPercentage}%</DataTable.Cell>
+                    <DataTable.Cell>{item.weight}</DataTable.Cell>
+                  </DataTable.Row>
+                );
+              }}
             />
 
             {/* //==================================================== */}
+        
           </DataTable>
         </View>
       </View>
     </View>
-  );
+  ); 
 };
 export default index;

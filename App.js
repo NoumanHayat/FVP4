@@ -33,7 +33,7 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider> 
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           {/* <Stack.Screen name="DailyWeight" component={DailyWeight} /> */}

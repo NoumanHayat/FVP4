@@ -412,14 +412,15 @@ const checkInHsitory = async props => {
     alert(error.message);
   }
 };
-const addDailyWeight = async props => {
-  try {
+const addDailyWeight = async (weight,bodyFatPercentage) => {
+  
+  try { 
     const response = await axios.post(
       `http://${ip}:3000/api/coachingRoute/addDailyWeight`,
       {
         token,
-        weight: props.weight,
-        bodyFatPercentage: props.bodyFatPercentage,
+        weight: weight,
+        bodyFatPercentage: bodyFatPercentage,
       },
     );
     console.log(response.data);

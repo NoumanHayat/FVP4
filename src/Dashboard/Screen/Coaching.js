@@ -12,41 +12,37 @@ import {Divider} from 'react-native-paper';
 
 import DataContext from '../../DataContext/DataContext';
 
-
 import * as Progress from 'react-native-progress';
 // import {Divider} from 'react-native-paper';
-const Coaching = (props) => {
-  const [detail,setDetail]= useState({}); 
-  const [user,setUser]= useState({});
+const Coaching = props => {
+  const [detail, setDetail] = useState({});
+  const [user, setUser] = useState({});
   const navigation = props.navigation;
 
-  const {currentCalories,userDetails} = useContext(DataContext);
-  useEffect(() => { 
+  const {currentCalories, userDetails} = useContext(DataContext);
+  useEffect(() => {
     async function fetchData() {
-      const a= await currentCalories();
-      userDetails().then((data) => {
-        setUser(data.data)
-      }).catch((error)=>{
-     });
-       setDetail(a);
-       console.log(user)
+      const a = await currentCalories();
+      userDetails()
+        .then(data => {
+          setUser(data.data);
+        })
+        .catch(error => {});
+      setDetail(a);
+      console.log(user);
     }
     fetchData();
   }, []);
-  return ( 
+  return (
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.namePart}>
-          <Text style={{fontSize: 35, padding: 10}}>
-            {user.Goal}
-          </Text>
+          <Text style={{fontSize: 35, padding: 10}}>{user.Goal}</Text>
 
           <View style={styles.golesAndWeights}>
             <Text style={{fontSize: 17}}>{user.weeklyGoal}KG/per week</Text>
-            <Text style={{fontSize: 17}}>
-              Current weight:{user.Weight}KG
-            </Text>
-          </View> 
+            <Text style={{fontSize: 17}}>Current weight:{user.Weight}KG</Text>
+          </View>
         </View>
 
         <View style={styles.containerSecond}>
@@ -69,24 +65,26 @@ const Coaching = (props) => {
         </View>
         <Divider />
         <View style={styles.containerThird}>
-          <TouchableOpacity style={styles.touchableOpacity}>
-            <Text style={{fontSize: 15, padding: 20}}>
-              Workout builder{' '}
-            </Text>
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
+              navigation.navigate('checkInHsitory');
+            }}>
+            <Text style={{fontSize: 15, padding: 20}}>CheckIn History </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.touchableOpacity}
             onPress={() => {
               navigation.navigate('chatBot');
             }}>
-            <Text style={{fontSize: 15, padding: 20}}>
-              Chat Bot{' '}
-            </Text>
+            <Text style={{fontSize: 15, padding: 20}}>Chat Bot </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.touchableOpacity}>
-            <Text style={{fontSize: 15, padding: 20}}>
-              Nutrition{' '}
-            </Text>
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
+              navigation.navigate('DailyWeight');
+            }}>
+            <Text style={{fontSize: 15, padding: 20}}>Add DailyWeight </Text>
           </TouchableOpacity>
         </View>
         <Divider />

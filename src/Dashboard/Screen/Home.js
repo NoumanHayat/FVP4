@@ -53,7 +53,7 @@ const HomeScreen = props => {
 
   var displayDate = useRef(0);
   const [date, setDate] = useState(new Date());
-  // Dhistory!=undefined?console.log(Dhistory[3].Calories[2]):0
+  
   //====================================================================================================
   // const previousData = {
   //   labels: ['Calories', 'Protein', 'Carbs', 'Fat'], // optional
@@ -86,7 +86,7 @@ const HomeScreen = props => {
               var dat = new Date();
               dat.setDate(dat.getDate() - displayDate.current);
               setDate(dat);
-              console.log(date.toDateString());
+             
             }
           }}>
           <Icon name="arrow-left" size={32} color="black" />
@@ -104,7 +104,7 @@ const HomeScreen = props => {
               var dat = new Date();
               dat.setDate(dat.getDate() - displayDate.current);
               setDate(dat);
-              console.log(date.toDateString());
+             
             }
           }}>
           <Icon name="arrow-right" size={32} color="black" />

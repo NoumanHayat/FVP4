@@ -29,7 +29,7 @@ const Coaching = props => {
         })
         .catch(error => {});
       setDetail(a);
-      console.log(user);
+      
     }
     fetchData();
   }, []);

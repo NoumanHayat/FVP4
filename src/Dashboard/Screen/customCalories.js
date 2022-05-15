@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 const index = props => {
   const navigation = props.navigation;
-  console.log(props.route.params)
+  
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [result, setResult] = useState('');
   const [selectedIndexes, setSelectedIndexes] = React.useState([]);

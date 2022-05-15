@@ -15,7 +15,7 @@ const autoLogin = async props => {
       return false;
     } else {
       token = value;
-      console.log(token);
+      
 
       return true;
     }
@@ -82,7 +82,7 @@ const signup = async props => {
       return false;
     }
   } catch (error) {
-    console.log('Error' + error);
+   
     alert('Please Check your Details');
   }
 };
@@ -97,12 +97,12 @@ const predictBodyFat = async props => {
 
     return response.data;
   } catch (error) {
-    console.log('Error' + error);
+    
     alert(error.message);
   }
 };
 const addCalories = async props => {
-  console.log(props);
+ 
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/meal/addMeal`,
@@ -124,7 +124,7 @@ const addCalories = async props => {
       return false;
     }
   } catch (error) {
-    console.log('Error' + error);
+    
     alert(error.message);
   }
 };
@@ -142,7 +142,7 @@ const findFood = async props => {
     );
     return response.data.result;
   } catch (error) {
-    console.log('Error' + error);
+    
     alert(error.message);
   }
 };
@@ -159,7 +159,7 @@ const DeleteFood = async props => {
     );
     return response.data.result;
   } catch (error) {
-    console.log('Error' + error);
+    
     alert(error.message);
   }
 };
@@ -185,10 +185,10 @@ const searchFood = async props => {
     const Protein = response.data.foods[0].nf_protein;
     const Carbs = response.data.foods[0].nf_total_carbohydrate;
     const Fats = response.data.foods[0].nf_total_fat;
-    console.log({FoodName, Calories, Protein, Carbs, Fats});
+   
     return {FoodName, Calories, Protein, Carbs, Fats};
   } catch (error) {
-    console.log('Error' + error);
+    
     alert(error.message);
   }
 };
@@ -201,14 +201,14 @@ const forgotPassword = async props => {
       },
     );
 
-    console.log(response.data);
+   
     if (response.data.status === 'success') {
       return true;
     } else {
       return false;
     }
   } catch (error) {
-    console.log(error);
+    
     alert(error.message);
   }
 };
@@ -223,7 +223,7 @@ const resetPassword = async props => {
       },
     );
 
-    console.log(response.data);
+    
     token = response.data.token;
     userId = response.data.id;
     if (response.data.status === 'success') {
@@ -232,7 +232,7 @@ const resetPassword = async props => {
       return false;
     }
   } catch (error) {
-    console.log(error);
+
     alert(error.message);
   }
 };
@@ -243,7 +243,7 @@ const userDetails = async props => {
     });
     return response;
   } catch (error) {
-    console.log(error);
+    
     alert(error.message);
   }
 };
@@ -257,7 +257,7 @@ const previousCalories = async props => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+   
     alert(error.message);
   }
 };
@@ -274,10 +274,10 @@ const weeklyCheckIn = async props => {
       },
     );
 
-    console.log(response.data);
+   
     return response.data;
   } catch (error) {
-    console.log(error);
+    
     alert(error.message);
   }
 };
@@ -291,7 +291,7 @@ const currentCalories = async props => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+    
     alert(error.message);
   }
 };
@@ -305,7 +305,7 @@ const initialCoaching = async props => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+   
     alert(error.message);
   }
 };
@@ -317,7 +317,7 @@ const todayDiaryDetail = async props => {
         token: token,
       },
     );
-    // console.log(response.data.reasult)
+   
 
     return response.data.reasult;
   } catch (error) {
@@ -333,7 +333,7 @@ const currentWeekPercentage = async props => {
         token: token,
       },
     );
-    // console.log(response.data.reasult)
+   
 
     return response.data;
   } catch (error) {
@@ -352,7 +352,7 @@ const helpAndSupport = async props => {
         details: props.details,
       },
     );
-    // console.log(response.data.reasult)
+ 
 
     return response.data;
   } catch (error) {
@@ -367,7 +367,6 @@ const diaryhistory = async props => {
         token: token,
       },
     );
-    // console.log(response.data.reasult[0])
     var test = [
       {
         title: response.data.reasult[0].title,
@@ -391,7 +390,6 @@ const diaryhistory = async props => {
         Fats: response.data.reasult[2].Fats[2],
       },
     ];
-    console.log(test);
     return response.data.reasult;
   } catch (error) {
     alert(error.message);
@@ -405,7 +403,7 @@ const checkInHsitory = async props => {
         token,
       },
     );
-    console.log(response.data);
+
 
     return response.data;
   } catch (error) {
@@ -423,7 +421,7 @@ const addDailyWeight = async (weight,bodyFatPercentage) => {
         bodyFatPercentage: bodyFatPercentage,
       },
     );
-    console.log(response.data);
+  
 
     return response.data;
   } catch (error) {
@@ -438,7 +436,7 @@ const getDailyWeight = async props => {
         token,
       },
     );
-    console.log(response.data);
+   
 
     return response.data;
   } catch (error) {

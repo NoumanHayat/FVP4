@@ -29,6 +29,7 @@ import initialCoaching from './src/Dashboard/Screen/CheckIn/initialCoaching';
 import helpSupport from './src/Dashboard/Screen/support/index';
 import DailyWeight from './src/Dashboard/Screen/DailyWeight';
 import checkInHsitory from './src/Dashboard/Screen/checkInHsitory';
+import payment from './src/Payment/payment1';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
     <SafeAreaProvider> 
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="payment" component={payment} />
           {/* <Stack.Screen name="DailyWeight" component={DailyWeight} /> */}
 
           {/* <Stack.Screen name="checkInHsitory" component={checkInHsitory} /> */}

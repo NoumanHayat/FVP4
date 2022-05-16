@@ -30,6 +30,7 @@ import helpSupport from './src/Dashboard/Screen/support/index';
 import DailyWeight from './src/Dashboard/Screen/DailyWeight';
 import checkInHsitory from './src/Dashboard/Screen/checkInHsitory';
 import payment from './src/Payment/payment1';
+import paymentPlan from './src/Payment/paymentPlan';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -37,8 +38,8 @@ const App = () => {
     <SafeAreaProvider> 
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="payment" component={payment} />
-          {/* <Stack.Screen name="DailyWeight" component={DailyWeight} /> */}
+        
+          <Stack.Screen name="paymentPlan" component={paymentPlan} />
 
           {/* <Stack.Screen name="checkInHsitory" component={checkInHsitory} /> */}
           <Stack.Screen name="WelcomePage" component={index} />
@@ -69,6 +70,7 @@ const App = () => {
           <Stack.Screen name="helpSupport" component={helpSupport} />
           <Stack.Screen name="DailyWeight" component={DailyWeight} />
           <Stack.Screen name="checkInHsitory" component={checkInHsitory} />
+          <Stack.Screen name="payment" component={payment} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

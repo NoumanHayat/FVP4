@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
+  ScrollView
 } from 'react-native';
 import LottieView from 'lottie-react-native';
 import CreditCardForm, {Button, FormModel} from 'rn-credit-card';
@@ -34,6 +35,7 @@ const App = () => {
     react_native_1.Alert.alert('Success: ' + JSON.stringify(model, null, 2));
   }
   return (
+    <ScrollView>
     <FormProvider {...formMethods}>
       <View style={styles.container}>
         <KeyboardAvoidingView
@@ -60,16 +62,19 @@ const App = () => {
         )}
       </View>
     </FormProvider>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#ffff'
   },
   avoider: {
     flex: 1,
     padding: 36,
+    paddingBottom:10
   },
   button: {
     margin: 36,

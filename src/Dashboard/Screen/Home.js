@@ -18,7 +18,7 @@ const HomeScreen = props => {
   const [Fats, setFats] = React.useState(0);
   const [Dhistory, setDHistory] = React.useState([]);
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData() { 
       setTodayDiary(await todayDiaryDetail());
       const a = await currentWeekPercentage();
       // const dh = await diaryhistory();

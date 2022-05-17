@@ -43,7 +43,7 @@ export default function App() {
       <Tab.Screen name="MainDashboard" component={HomeScreen} />
       <Tab.Screen name="Coach" component={Coach} />
       <Tab.Screen name="Profile" component={Me} />
-      <Tab.Screen name="Settings" component={Profile} />
+      <Tab.Screen name="Settings" component={Profile} /> 
     </Tab.Navigator>
   );
 }

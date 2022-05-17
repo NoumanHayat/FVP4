@@ -39,12 +39,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
         
-          {/* <Stack.Screen name="paymentPlan" component={paymentPlan} /> */}
-
-          {/* <Stack.Screen name="checkInHsitory" component={checkInHsitory} /> */}
           
-
-          <Stack.Screen name="payment" component={payment} />
 
           <Stack.Screen name="WelcomePage" component={index} />
           <Stack.Screen name="Login" component={login} />
@@ -74,7 +69,7 @@ const App = () => {
           <Stack.Screen name="helpSupport" component={helpSupport} />
           <Stack.Screen name="DailyWeight" component={DailyWeight} />
           <Stack.Screen name="checkInHsitory" component={checkInHsitory} />
-          {/* <Stack.Screen name="payment" component={payment} />  */}
+          <Stack.Screen name="payment" component={payment} /> 
           <Stack.Screen name="paymentPlan" component={paymentPlan} /> 
         </Stack.Navigator>
       </NavigationContainer>

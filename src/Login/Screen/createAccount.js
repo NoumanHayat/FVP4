@@ -274,6 +274,7 @@ const index = props => {
               <Text style={Styles.buttonText}>Create Account</Text>
             </TouchableOpacity>
           </LinearGradient>
+          <TouchableOpacity onPress={()=>{alert('Please provide details');}}><Text style={{fontSize:20}}>Gmail</Text></TouchableOpacity>
         </View>
       </Animated.View>
     </ScrollView>

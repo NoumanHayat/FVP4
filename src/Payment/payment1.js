@@ -56,7 +56,7 @@ const App = () => {
             style={styles.button}
             title={'CONFIRM PAYMENT'}
             onPress={() => {
-              alert('okkk');
+              console.log(formMethods.control._formValues)
             }}
           />
         )}

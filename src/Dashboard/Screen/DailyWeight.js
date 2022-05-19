@@ -107,31 +107,6 @@ const index = props => {
               <DataTable.Title>Body Fat</DataTable.Title>
               <DataTable.Title>Weight</DataTable.Title>
             </DataTable.Header>
-            {/* ========================================================== */}
-
-            {/* <FlatList
-              ItemSeparatorComponent={
-                Platform.OS !== 'android' &&
-                (({highlighted}) => (
-                  <View
-                    style={[Style.separator, highlighted && {marginLeft: 0}]}
-                  />
-                ))
-              }
-              data={history}
-              renderItem={({item, index, separators}) => {
-                return (
-                  <DataTable.Row>
-                    <DataTable.Cell>{item.history}</DataTable.Cell>
-                    <DataTable.Cell>{item.bodyFat}</DataTable.Cell>
-                    <DataTable.Cell>{item.weight}</DataTable.Cell>
-                  </DataTable.Row>
-                );
-              }}
-            /> */}
-
-            {/* //==================================================== */}
-           {/* ========================================================== */}
 
             <FlatList
               ItemSeparatorComponent={
@@ -152,7 +127,7 @@ const index = props => {
                   </DataTable.Row>
                 );
               }}
-            />
+            /> 
 
             {/* //==================================================== */}
         

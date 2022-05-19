@@ -39,6 +39,8 @@ const App = () => {
     <SafeAreaProvider> 
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="weight" component={weight} />
+
           <Stack.Screen name="WelcomePage" component={index} />
           <Stack.Screen name="Login" component={login} />
           <Stack.Screen name="createAccount" component={createAccount} />
@@ -67,10 +69,9 @@ const App = () => {
           <Stack.Screen name="helpSupport" component={helpSupport} />
           <Stack.Screen name="DailyWeight" component={DailyWeight} />
           <Stack.Screen name="checkInHsitory" component={checkInHsitory} />
-          <Stack.Screen name="paymentPlan" component={paymentPlan} /> 
-          <Stack.Screen name="payment" component={payment} /> 
-          <Stack.Screen name="weight" component={weight} />
-
+          <Stack.Screen name="paymentPlan" component={paymentPlan} />
+          <Stack.Screen name="payment" component={payment} />
+          {/* <Stack.Screen name="weight" component={weight} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -142,7 +142,7 @@ const HomeScreen = props => {
               }}
               hideLegend={false}
             />
-          </View>
+          </View> 
           <View style={styles.buttonGroupStyle}>
             <ButtonGroup
               // buttonStyle={{width: 100}}

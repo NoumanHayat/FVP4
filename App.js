@@ -32,15 +32,16 @@ import checkInHsitory from './src/Dashboard/Screen/checkInHsitory';
 import payment from './src/Payment/payment1';
 import paymentPlan from './src/Payment/paymentPlan';
 import weight from './src/progresstracking/weight';
+import BodyFatPercentage from './src/progresstracking/BodyFatPercentage';
+import MaintenenceCalories from './src/progresstracking/MaintenenceCalories';
+import progresstrackingCalories from './src/progresstracking/Calories';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaProvider> 
+    <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="weight" component={weight} />
-
           <Stack.Screen name="WelcomePage" component={index} />
           <Stack.Screen name="Login" component={login} />
           <Stack.Screen name="createAccount" component={createAccount} />
@@ -71,7 +72,21 @@ const App = () => {
           <Stack.Screen name="checkInHsitory" component={checkInHsitory} />
           <Stack.Screen name="paymentPlan" component={paymentPlan} />
           <Stack.Screen name="payment" component={payment} />
-          {/* <Stack.Screen name="weight" component={weight} /> */}
+          <Stack.Screen name="weight" component={weight} />
+          <Stack.Screen
+            name="BodyFatPercentage"
+            component={BodyFatPercentage}
+          />
+          <Stack.Screen
+            name="MaintenenceCalories"
+            component={MaintenenceCalories}
+          />
+          <Stack.Screen
+            name="progresstrackingCalories"
+            component={progresstrackingCalories}
+          />
+
+          {/* <Stack.Screen name="Calories" component={Calories} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -12,6 +12,7 @@ import {DataTable} from 'react-native-paper';
 import {ButtonGroup, Card} from 'react-native-elements';
 
 const weight = () => {
+   //Calories
   //=============================================================================
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [selectedIndexes, setSelectedIndexes] = React.useState([]);
@@ -34,23 +35,23 @@ const weight = () => {
   const [listData,setListData]= React.useState([
     {
       Date: '05-01',
-      weight: '70',
+      Calories: '70',
     },
     {
       Date: '05-02',
-      weight: '72',
+      Calories: '72',
     },
     {
       Date: '05-03',
-      weight: '78',
+      Calories: '78',
     },
     {
       Date: '05-04',
-      weight: '78',
+      Calories: '78',
     },
     {
       Date: '05-05',
-      weight: '78',
+      Calories: '78',
     },
   ])
 
@@ -130,7 +131,6 @@ const weight = () => {
   //   },
   // ];
 
-  console.log(weight);
   return (
     <View style={{flex: 1, alignItems: 'center', padding: 15}}>
       <Text>Bezier Line Chart</Text>
@@ -146,7 +146,7 @@ const weight = () => {
         width={Dimensions.get('window').width} // from react-native
         height={220}
         // yAxisLabel="$"
-        yAxisSuffix="KG"
+        yAxisSuffix="cls"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: '#ffa726',
@@ -193,27 +193,27 @@ const weight = () => {
                 setListData([
                   {
                     Date: detail.DailyLabel[0],
-                    weight: detail.DailyData[0],
+                    Calories: detail.DailyData[0],
                   },
                   {
                     Date: detail.DailyLabel[1],
-                    weight: detail.DailyData[1],
+                    Calories: detail.DailyData[1],
                   },
                   {
                     Date: detail.DailyLabel[2],
-                    weight: detail.DailyData[2],
+                    Calories: detail.DailyData[2],
                   },
                   {
                     Date: detail.DailyLabel[3],
-                    weight: detail.DailyData[3],
+                    Calories: detail.DailyData[3],
                   },
                   {
                     Date: detail.DailyLabel[4],
-                    weight: detail.DailyData[4],
+                    Calories: detail.DailyData[4],
                   },
                   {
                     Date: detail.DailyLabel[5],
-                    weight: detail.DailyData[5],
+                    Calories: detail.DailyData[5],
                   },
                 ])
               }else if(selectedIdx==1){
@@ -222,27 +222,27 @@ const weight = () => {
                 setListData([
                   {
                     Date: detail.weeklyLabel[0],
-                    weight: detail.weeklyData[0],
+                    Calories: detail.weeklyData[0],
                   },
                   {
                     Date: detail.weeklyLabel[1],
-                    weight: detail.weeklyData[1],
+                    Calories: detail.weeklyData[1],
                   },
                   {
                     Date: detail.weeklyLabel[2],
-                    weight: detail.weeklyData[2],
+                    Calories: detail.weeklyData[2],
                   },
                   {
                     Date: detail.weeklyLabel[3],
-                    weight: detail.weeklyData[3],
+                    Calories: detail.weeklyData[3],
                   },
                   {
                     Date: detail.weeklyLabel[4],
-                    weight: detail.weeklyData[4],
+                    Calories: detail.weeklyData[4],
                   },
                   {
                     Date: detail.weeklyLabel[5],
-                    weight: detail.weeklyData[5],
+                    Calories: detail.weeklyData[5],
                   },
                 ])
               }else{
@@ -251,27 +251,27 @@ const weight = () => {
                 setListData([
                   {
                     Date: detail.MonthlyLabel[0],
-                    weight: detail.MonthlyData[0],
+                    Calories: detail.MonthlyData[0],
                   },
                   {
                     Date: detail.MonthlyLabel[1],
-                    weight: detail.MonthlyData[1],
+                    Calories: detail.MonthlyData[1],
                   },
                   {
                     Date: detail.MonthlyLabel[2],
-                    weight: detail.MonthlyData[2],
+                    Calories: detail.MonthlyData[2],
                   },
                   {
                     Date: detail.MonthlyLabel[3],
-                    weight: detail.MonthlyData[3],
+                    Calories: detail.MonthlyData[3],
                   },
                   {
                     Date: detail.MonthlyLabel[4],
-                    weight: detail.MonthlyData[4],
+                    Calories: detail.MonthlyData[4],
                   },
                   {
                     Date: detail.MonthlyLabel[5],
-                    weight: detail.MonthlyData[5],
+                    Calories: detail.MonthlyData[5],
                   },
                 ])
               }
@@ -289,7 +289,7 @@ const weight = () => {
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>Date</DataTable.Title>
-          <DataTable.Title>Weight</DataTable.Title>
+          <DataTable.Title>Calories</DataTable.Title>
         </DataTable.Header>
         <FlatList
           ItemSeparatorComponent={
@@ -303,7 +303,7 @@ const weight = () => {
             return (
               <DataTable.Row>
                 <DataTable.Cell>{item.Date}</DataTable.Cell>
-                <DataTable.Cell>{item.weight}</DataTable.Cell>
+                <DataTable.Cell>{item.Calories}</DataTable.Cell>
               </DataTable.Row>
             );
           }}

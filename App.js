@@ -35,6 +35,9 @@ import weight from './src/progresstracking/weight';
 import BodyFatPercentage from './src/progresstracking/BodyFatPercentage';
 import MaintenenceCalories from './src/progresstracking/MaintenenceCalories';
 import progresstrackingCalories from './src/progresstracking/Calories';
+import Carbs from './src/progresstracking/Carbs';
+import Protein from './src/progresstracking/Protein';
+import Fats from './src/progresstracking/Fats';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -85,8 +88,11 @@ const App = () => {
             name="progresstrackingCalories"
             component={progresstrackingCalories}
           />
+          <Stack.Screen name="Carbs" component={Carbs} />
+          <Stack.Screen name="Protein" component={Protein} />
+          <Stack.Screen name="Fats" component={Fats} />
 
-          {/* <Stack.Screen name="Calories" component={Calories} /> */}
+
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

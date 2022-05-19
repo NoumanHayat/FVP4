@@ -4,7 +4,7 @@ import {Me as styles} from '../Style/index';
 import {Divider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DataContext from '../../DataContext/DataContext';
-const profile = (props) => {
+const profile = props => {
   const navigation = props.navigation;
   const {userDetails} = useContext(DataContext);
   const [detail, setDetail] = useState({});
@@ -59,7 +59,9 @@ const profile = (props) => {
             </View>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity} onPress={() => {
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
               navigation.push('BodyFatPercentage');
             }}>
             <Text style={{fontSize: 15}}>Body Fat Percentage</Text>
@@ -85,7 +87,9 @@ const profile = (props) => {
             </View>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity} onPress={() => {
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
               navigation.push('MaintenenceCalories');
             }}>
             <Text style={{fontSize: 15}}>Maintenence Calories</Text>
@@ -103,10 +107,12 @@ const profile = (props) => {
             Nutrition & Workout
           </Text>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity} onPress={() => {
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
               navigation.push('progresstrackingCalories');
             }}>
-          {/* progresstrackingCalories */}
+            {/* progresstrackingCalories */}
             <Text style={{fontSize: 15}}>Calories</Text>
             <View style={styles.arrow}>
               <Icon
@@ -118,7 +124,11 @@ const profile = (props) => {
             </View>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity}>
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
+              navigation.push('Protein');
+            }}>
             <Text style={{fontSize: 15}}>Protein</Text>
             <View style={styles.arrow}>
               <Icon
@@ -130,7 +140,11 @@ const profile = (props) => {
             </View>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity}>
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
+              navigation.push('Carbs');
+            }}>
             <Text style={{fontSize: 15}}>Carbs</Text>
             <View style={styles.arrow}>
               <Icon
@@ -142,7 +156,11 @@ const profile = (props) => {
             </View>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity}>
+          <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() => {
+              navigation.push('Fats');
+            }}>
             <Text style={{fontSize: 15}}>Fats</Text>
             <View style={styles.arrow}>
               <Icon

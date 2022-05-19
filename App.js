@@ -39,9 +39,6 @@ const App = () => {
     <SafeAreaProvider> 
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="paymentPlan" component={paymentPlan} />  */}
-
-        {/* <Stack.Screen name="weight" component={weight} /> */}
           <Stack.Screen name="WelcomePage" component={index} />
           <Stack.Screen name="Login" component={login} />
           <Stack.Screen name="createAccount" component={createAccount} />

@@ -21,7 +21,7 @@ const HomeScreen = props => {
     async function fetchData() { 
       setTodayDiary(await todayDiaryDetail());
       const a = await currentWeekPercentage();
-      // const dh = await diaryhistory();
+      // const dh = await diaryhistory(); 
       //===========================
       diaryhistory()
         .then(dh => {

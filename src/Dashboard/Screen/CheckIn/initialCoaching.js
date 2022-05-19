@@ -17,7 +17,7 @@ const index = props => {
   useEffect(() => { 
     async function fetchData() {
       const a= await initialCoaching();
-       setDetail(a);
+       setDetail(a); 
     }
     fetchData();
   }, []);

@@ -108,7 +108,7 @@ const index = props => {
           onPress={async () => {
             var result = await signup(props.route.params);
             result
-              ? navigation.push('initialCoaching')
+              ? navigation.push('initialCoaching') 
               : navigation.push('createAccount');
           }}>
           <Text style={Styles.buttonText}>Continue</Text>

@@ -17,9 +17,11 @@ var react_hook_form_1 = require('react-hook-form');
 var react_native_1 = require('react-native');
 
 const App = (props) => {
+  const navigation = props.navigation;
   const packageType=props.route.params?props.route.params[0]:"PREMIUM";
   const amount= props.route.params?props.route.params[1]:30;
   const {addPaymentMethod} = useContext(DataContext);
+
   var formMethods = (0, react_hook_form_1.useForm)({
     // to trigger the validation on the blur event
     mode: 'onBlur',
@@ -58,7 +60,11 @@ const App = (props) => {
               title={'CONFIRM PAYMENT'}
               onPress={async () => {
                 console.log(formMethods.control._formValues);
-                addPaymentMethod(formMethods.control._formValues.cardNumber,formMethods.control._formValues.cvv,formMethods.control._formValues.holderName,amount,packageType)
+                const res =await addPaymentMethod(formMethods.control._formValues.cardNumber,formMethods.control._formValues.cvv,formMethods.control._formValues.holderName,amount,packageType)
+                if(res===200){
+                  alert("You have subscribe success")
+                  navigation.push('Dashboard')
+                }
               }}
             />
           )}

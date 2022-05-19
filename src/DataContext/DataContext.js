@@ -282,7 +282,7 @@ const initialCoaching = async props => {
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/coachingRoute/initialCoaching`,
-      {
+      { 
         token: token,
       },
     );
@@ -433,8 +433,8 @@ const addPaymentMethod = async (cardNumber, cvc, name, amount, packageType) => {
         packageType: packageType,
       },
     );
-    console.log(response.data);
-    return response.data;
+    console.log(response.status);
+    return response.status;
   } catch (error) {
     alert(error.message);
   }

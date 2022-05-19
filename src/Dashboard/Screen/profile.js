@@ -47,7 +47,9 @@ const profile = (props) => {
         </View>
         <View style={styles.lowerPart}> 
         
-          <TouchableOpacity style={styles.touchableOpacity}>
+          <TouchableOpacity style={styles.touchableOpacity} onPress={()=>{
+            navigation.push('paymentPlan');
+          }}>
             <Icon
               name="briefcase"
               style={{paddingRight: 10}}

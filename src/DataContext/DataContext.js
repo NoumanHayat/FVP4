@@ -15,7 +15,6 @@ const autoLogin = async props => {
       return false;
     } else {
       token = value;
-      
 
       return true;
     }
@@ -82,7 +81,6 @@ const signup = async props => {
       return false;
     }
   } catch (error) {
-   
     alert('Please Check your Details');
   }
 };
@@ -97,12 +95,10 @@ const predictBodyFat = async props => {
 
     return response.data;
   } catch (error) {
-    
     alert(error.message);
   }
 };
 const addCalories = async props => {
- 
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/meal/addMeal`,
@@ -124,7 +120,6 @@ const addCalories = async props => {
       return false;
     }
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -142,7 +137,6 @@ const findFood = async props => {
     );
     return response.data.result;
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -159,7 +153,6 @@ const DeleteFood = async props => {
     );
     return response.data.result;
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -185,10 +178,9 @@ const searchFood = async props => {
     const Protein = response.data.foods[0].nf_protein;
     const Carbs = response.data.foods[0].nf_total_carbohydrate;
     const Fats = response.data.foods[0].nf_total_fat;
-   
+
     return {FoodName, Calories, Protein, Carbs, Fats};
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -201,14 +193,12 @@ const forgotPassword = async props => {
       },
     );
 
-   
     if (response.data.status === 'success') {
       return true;
     } else {
       return false;
     }
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -223,7 +213,6 @@ const resetPassword = async props => {
       },
     );
 
-    
     token = response.data.token;
     userId = response.data.id;
     if (response.data.status === 'success') {
@@ -232,7 +221,6 @@ const resetPassword = async props => {
       return false;
     }
   } catch (error) {
-
     alert(error.message);
   }
 };
@@ -243,7 +231,6 @@ const userDetails = async props => {
     });
     return response;
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -257,7 +244,6 @@ const previousCalories = async props => {
     );
     return response.data;
   } catch (error) {
-   
     alert(error.message);
   }
 };
@@ -274,10 +260,8 @@ const weeklyCheckIn = async props => {
       },
     );
 
-   
     return response.data;
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -291,7 +275,6 @@ const currentCalories = async props => {
     );
     return response.data;
   } catch (error) {
-    
     alert(error.message);
   }
 };
@@ -305,7 +288,6 @@ const initialCoaching = async props => {
     );
     return response.data;
   } catch (error) {
-   
     alert(error.message);
   }
 };
@@ -317,11 +299,10 @@ const todayDiaryDetail = async props => {
         token: token,
       },
     );
-   
 
     return response.data.reasult;
   } catch (error) {
-    alert("todayDiaryDetail");
+    alert('todayDiaryDetail');
     // alert(error.message);
   }
 };
@@ -333,11 +314,10 @@ const currentWeekPercentage = async props => {
         token: token,
       },
     );
-   
 
     return response.data;
   } catch (error) {
-    alert("currentWeekPercentage");
+    alert('currentWeekPercentage');
     // alert(error.message);
   }
 };
@@ -352,7 +332,6 @@ const helpAndSupport = async props => {
         details: props.details,
       },
     );
- 
 
     return response.data;
   } catch (error) {
@@ -404,15 +383,13 @@ const checkInHsitory = async props => {
       },
     );
 
-
     return response.data;
   } catch (error) {
     alert(error.message);
   }
 };
-const addDailyWeight = async (weight,bodyFatPercentage) => {
-  
-  try { 
+const addDailyWeight = async (weight, bodyFatPercentage) => {
+  try {
     const response = await axios.post(
       `http://${ip}:3000/api/coachingRoute/addDailyWeight`,
       {
@@ -421,7 +398,6 @@ const addDailyWeight = async (weight,bodyFatPercentage) => {
         bodyFatPercentage: bodyFatPercentage,
       },
     );
-  
 
     return response.data;
   } catch (error) {
@@ -436,8 +412,28 @@ const getDailyWeight = async props => {
         token,
       },
     );
-   
 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+const addPaymentMethod = async (cardNumber, cvc, name, amount, packageType) => {
+  console.log(
+    cardNumber + ' ' + cvc + ' ' + name + ' ' + amount + ' ' + packageType,
+  );
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/payment/addPayment`,
+      {
+        token,
+        cardNumber: cardNumber,
+        cvc: cvc,
+        amount: amount,
+        packageType: packageType,
+      },
+    );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     alert(error.message);
@@ -449,6 +445,7 @@ export const DataProvider = ({children}) => {
     <DataContext.Provider
       value={{
         signin,
+        addPaymentMethod,
         logout,
         initialCoaching,
         signup,

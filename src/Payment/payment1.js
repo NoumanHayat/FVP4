@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, {useContext} from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import {
   Alert,
@@ -7,18 +6,20 @@ import {
   View,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
-  ScrollView
+  SafeAreaView, 
+  ScrollView,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
 import CreditCardForm, {Button, FormModel} from 'rn-credit-card';
+import DataContext from '../DataContext/DataContext';
 
-var react_hook_form_1 = require("react-hook-form");
-var react_native_1 = require("react-native");
+var react_hook_form_1 = require('react-hook-form');
+var react_native_1 = require('react-native');
 
-
-
-const App = () => {
+const App = (props) => {
+  const packageType=props.route.params?props.route.params[0]:"PREMIUM";
+  const amount= props.route.params?props.route.params[1]:30;
+  const {addPaymentMethod} = useContext(DataContext);
   var formMethods = (0, react_hook_form_1.useForm)({
     // to trigger the validation on the blur event
     mode: 'onBlur',
@@ -36,32 +37,33 @@ const App = () => {
   }
   return (
     <ScrollView>
-    <FormProvider {...formMethods}>
-      <View style={styles.container}>
-        <KeyboardAvoidingView
-          style={styles.avoider}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <CreditCardForm
-            LottieView={LottieView}
-            horizontalStart
-            overrides={{
-              labelText: {
-                marginTop: 16,
-              },
-            }}
-          />
-        </KeyboardAvoidingView>
-        {formState.isValid && (
-          <Button
-            style={styles.button}
-            title={'CONFIRM PAYMENT'}
-            onPress={() => {
-              console.log(formMethods.control._formValues)
-            }}
-          />
-        )}
-      </View>
-    </FormProvider>
+      <FormProvider {...formMethods}>
+        <View style={styles.container}>
+          <KeyboardAvoidingView
+            style={styles.avoider}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <CreditCardForm
+              LottieView={LottieView}
+              horizontalStart
+              overrides={{
+                labelText: {
+                  marginTop: 16,
+                },
+              }}
+            />
+          </KeyboardAvoidingView>
+          {formState.isValid && (
+            <Button
+              style={styles.button}
+              title={'CONFIRM PAYMENT'}
+              onPress={async () => {
+                console.log(formMethods.control._formValues);
+                addPaymentMethod(formMethods.control._formValues.cardNumber,formMethods.control._formValues.cvv,formMethods.control._formValues.holderName,amount,packageType)
+              }}
+            />
+          )}
+        </View>
+      </FormProvider>
     </ScrollView>
   );
 };
@@ -69,12 +71,12 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffff'
+    backgroundColor: '#ffff',
   },
   avoider: {
     flex: 1,
     padding: 36,
-    paddingBottom:10
+    paddingBottom: 10,
   },
   button: {
     margin: 36,

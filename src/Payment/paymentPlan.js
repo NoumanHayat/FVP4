@@ -74,7 +74,7 @@ const MyComponent = props => {
                   borderRadius: 10,
                 }}
                 onPress={() => {
-                  navigation.push('payment', 10);
+                  navigation.push('payment', ["BASIC",10]);
                 }}>
                 <Text style={{color: 'white', fontSize: 15}}>
                   Subscription 10$
@@ -132,7 +132,7 @@ const MyComponent = props => {
                   borderRadius: 10,
                 }}
                 onPress={() => {
-                  navigation.push('payment', 20);
+                  navigation.push('payment', ["STANDARD",10]);
                 }}>
                 <Text style={{color: 'white', fontSize: 15}}>
                   Subscription 20$
@@ -190,7 +190,7 @@ const MyComponent = props => {
                   borderRadius: 10,
                 }}
                 onPress={() => {
-                  navigation.push('payment', 30);
+                  navigation.push('payment', ["PREMIUM",30]);
                 }}>
                 <Text style={{color: 'white', fontSize: 15}}>
                   Subscription 30$

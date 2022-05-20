@@ -21,7 +21,7 @@ const index = props => {
     }
     fetchData();
   }, []);
-
+ 
   return ( 
     <View style={Styles.container}>
       <Text style={{fontSize: 22, color: '#000000'}}>

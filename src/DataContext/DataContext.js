@@ -282,7 +282,7 @@ const initialCoaching = async props => {
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/coachingRoute/initialCoaching`,
-      { 
+      {
         token: token,
       },
     );
@@ -439,6 +439,48 @@ const addPaymentMethod = async (cardNumber, cvc, name, amount, packageType) => {
     alert(error.message);
   }
 };
+const progressTracking_getWeight = async () => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/progressTracking/getWeight`,
+      {
+        token,
+      },
+    );
+ 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+const progressTracking_getBodyFatPercentage = async () => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/progressTracking/getBodyFatPercentage`,
+      {
+        token,
+      },
+    );
+ 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+const progressTracking_getMaintenanceCalories = async () => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/progressTracking/getMaintenanceCalories`,
+      {
+        token,
+      },
+    );
+ 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+}; 
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
@@ -470,6 +512,9 @@ export const DataProvider = ({children}) => {
         weeklyCheckIn,
         helpAndSupport,
         diaryhistory,
+        progressTracking_getWeight,
+        progressTracking_getBodyFatPercentage,
+        progressTracking_getMaintenanceCalories
       }}>
       {children}
     </DataContext.Provider>

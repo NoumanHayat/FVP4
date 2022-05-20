@@ -15,60 +15,12 @@ const index = props => {
     async function fetchData() {
       const a= await getDailyWeight();
        setDetail(a);
+       console.log(a)
     }
     fetchData();
   }, []);
 
-  const history = [
-    {
-      id: 0,
-      history: '04/17/2022',
-      weight: '98KG',
-      bodyFat: '40%',
-    },
-    {
-      id: 1,
-      history: '04/18/2022',
-      weight: '97KG',
-      bodyFat: '27%',
-    },
-    {
-      id: 2,
-      history: '04/17/2022',
-      weight: '96KG',
-      bodyFat: '40%',
-    },
-    {
-      id: 3,
-      history: '04/18/2022',
-      weight: '93KG',
-      bodyFat: '27%',
-    },
-    {
-      id: 4,
-      history: '04/17/2022',
-      weight: '98KG',
-      bodyFat: '40%',
-    },
-    {
-      id: 5,
-      history: '04/18/2022',
-      weight: '97KG',
-      bodyFat: '27%',
-    },
-    {
-      id: 6,
-      history: '04/17/2022',
-      weight: '96KG',
-      bodyFat: '40%',
-    },
-    {
-      id: 7,
-      history: '04/18/2022',
-      weight: '93KG',
-      bodyFat: '27%',
-    },
-  ]; 
+  
   return (
     <View style={{flex: 1, backgroundColor: '#ffff'}}>
       <View style={Styles.Container}>
@@ -122,8 +74,8 @@ const index = props => {
                 return (
                   <DataTable.Row>
                     <DataTable.Cell>{item.Date}</DataTable.Cell>
-                    <DataTable.Cell>{item.bodyFatPercentage}%</DataTable.Cell>
-                    <DataTable.Cell>{item.weight}</DataTable.Cell>
+                    <DataTable.Cell>{Math.round(item.bodyFatPercentage)}%</DataTable.Cell>
+                    <DataTable.Cell>{parseInt(item.weight)}</DataTable.Cell>
                   </DataTable.Row>
                 );
               }}

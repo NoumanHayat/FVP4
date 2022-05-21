@@ -93,7 +93,7 @@ const profile = props => {
               navigation.push('MaintenenceCalories');
             }}>
             <Text style={{fontSize: 15}}>Maintenence Calories</Text>
-            <View style={styles.arrow}>
+            <View style={styles.arrow}> 
               <Icon
                 name="arrow-forward"
                 style={{paddingRight: 10, paddingTop: 12}}

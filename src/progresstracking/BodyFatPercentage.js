@@ -64,6 +64,32 @@ const weight = () => {
       setDetail(a);
       setLabels(a.DailyLabel);
       setValues(a.DailyData);
+      setListData([
+        {
+          Date: a.DailyLabel[0],
+          bodyFat: a.DailyData[0],
+        },
+        {
+          Date: a.DailyLabel[1],
+          bodyFat: a.DailyData[1],
+        },
+        {
+          Date: a.DailyLabel[2],
+          bodyFat: a.DailyData[2],
+        },
+        {
+          Date: a.DailyLabel[3],
+          bodyFat: a.DailyData[3],
+        }, 
+        {
+          Date: a.DailyLabel[4],
+          bodyFat: a.DailyData[4],
+        },
+        {
+          Date: a.DailyLabel[5],
+          bodyFat: a.DailyData[5],
+        },
+      ]);
     }
     fetchData();
   }, []);

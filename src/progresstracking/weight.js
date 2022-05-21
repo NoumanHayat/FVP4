@@ -64,6 +64,32 @@ const weight = props => {
       setDetail(a);
       setLabels(a.DailyLabel);
       setValues(a.DailyData);
+      setListData([
+        {
+          Date: a.DailyLabel[0],
+          weight: a.DailyData[0],
+        },
+        {
+          Date: a.DailyLabel[1],
+          weight: a.DailyData[1],
+        },
+        {
+          Date: a.DailyLabel[2],
+          weight: a.DailyData[2],
+        },
+        {
+          Date: a.DailyLabel[3],
+          weight: a.DailyData[3],
+        }, 
+        {
+          Date: a.DailyLabel[4],
+          weight: a.DailyData[4],
+        },
+        {
+          Date: a.DailyLabel[5],
+          weight: a.DailyData[5],
+        },
+      ]);
     }
     fetchData();
   }, []);

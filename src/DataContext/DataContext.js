@@ -481,11 +481,71 @@ const progressTracking_getMaintenanceCalories = async () => {
     alert(error.message);
   }
 }; 
+const progressTracking_getCalories = async () => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/progressTracking/getCalories`,
+      {
+        token,
+      },
+    );
+ 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+const progressTracking_getProtein = async () => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/progressTracking/getProtein`,
+      {
+        token,
+      },
+    );
+ 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+}; 
+const progressTracking_getCarbs = async () => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/progressTracking/getCarbs`,
+      {
+        token,
+      },
+    );
+ 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+const progressTracking_getFats = async () => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/progressTracking/getFats`,
+      {
+        token,
+      },
+    );
+ 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+}; 
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
     <DataContext.Provider
       value={{
+        progressTracking_getCalories,
+        progressTracking_getProtein,
+        progressTracking_getCarbs,
+        progressTracking_getFats,
         signin,
         addPaymentMethod,
         logout,

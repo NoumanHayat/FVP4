@@ -18,20 +18,17 @@ const weight = () => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [selectedIndexes, setSelectedIndexes] = React.useState([]);
   const [labels, setLabels] = React.useState([
-    '05-02',
-    '05-03',
-    '05-04',
-    '05-05',
-    '05-06',
-    '05-07',
+    '13-4',
+    '6-4',
+    '29-3',
+    '22-3',
+    '15-3',
+    '8-3',
+    '1-3',
   ]);
   const [values, setValues] = React.useState([
-    '77',
-    '78',
-    '79',
-    '80',
-    '77',
-    '76',
+    2464.713802, 2464.713802, 2464.713802, 2464.713802, 2464.713802,
+    2464.713802, 2764.958779,
   ]);
   const [listData, setListData] = React.useState([
     {
@@ -55,16 +52,43 @@ const weight = () => {
       MaintenenceCalories: '78',
     },
   ]);
+  const [detail, setDetail] = React.useState([]);
+
   const {progressTracking_getMaintenanceCalories} = useContext(DataContext);
 
   //=============================================================================
-  const [detail, setDetail] = React.useState([]);
   useEffect(() => {
     async function fetchData() {
       const a = await progressTracking_getMaintenanceCalories();
       setDetail(a);
-      setLabels(a.DailyLabel);
-      setValues(a.DailyData);
+      setLabels(a.weeklyLabel);
+      setValues(a.weeklyData);
+      setListData([
+        {
+          Date: a.weeklyLabel[0],
+          MaintenenceCalories: a.weeklyData[0],
+        },
+        {
+          Date: a.weeklyLabel[1],
+          MaintenenceCalories: a.weeklyData[1],
+        },
+        {
+          Date: a.weeklyLabel[2],
+          MaintenenceCalories: a.weeklyData[2],
+        },
+        {
+          Date: a.weeklyLabel[3],
+          MaintenenceCalories: a.weeklyData[3],
+        },
+        {
+          Date: a.weeklyLabel[4],
+          MaintenenceCalories: a.weeklyData[4],
+        },
+        {
+          Date: a.weeklyLabel[5],
+          MaintenenceCalories: a.weeklyData[5],
+        },
+      ]);
     }
     fetchData();
   }, []);
@@ -111,7 +135,7 @@ const weight = () => {
         <ButtonGroup
           // buttonStyle={{width: 100}}
           buttonContainerStyle={{}}
-          buttons={['Daily', 'weekly', 'Monthly']}
+          buttons={['weekly', 'Monthly']}
           containerStyle={{}}
           disabled={[3, 4]}
           disabledStyle={{}}
@@ -124,35 +148,6 @@ const weight = () => {
             } else {
               console.log(selectedIdx);
               if (selectedIdx == 0) {
-                setLabels(detail.DailyLabel);
-                setValues(detail.DailyData);
-                setListData([
-                  {
-                    Date: detail.DailyLabel[0],
-                    MaintenenceCalories: detail.DailyData[0],
-                  },
-                  {
-                    Date: detail.DailyLabel[1],
-                    MaintenenceCalories: detail.DailyData[1],
-                  },
-                  {
-                    Date: detail.DailyLabel[2],
-                    MaintenenceCalories: detail.DailyData[2],
-                  },
-                  {
-                    Date: detail.DailyLabel[3],
-                    MaintenenceCalories: detail.DailyData[3],
-                  },
-                  {
-                    Date: detail.DailyLabel[4],
-                    MaintenenceCalories: detail.DailyData[4],
-                  },
-                  {
-                    Date: detail.DailyLabel[5],
-                    MaintenenceCalories: detail.DailyData[5],
-                  },
-                ]);
-              } else if (selectedIdx == 1) {
                 setLabels(detail.weeklyLabel);
                 setValues(detail.weeklyData);
                 setListData([

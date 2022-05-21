@@ -12,7 +12,7 @@ const HomeScreen = props => {
   const [todayDiary, setTodayDiary] = React.useState({});
   //=========================================New Content============================================================
   const {currentWeekPercentage} = useContext(DataContext);
-  const [Calories, setCalories] = React.useState(0);
+  const [Calories, setCalories] = React.useState(0); 
   const [Protein, setProtein] = React.useState(0);
   const [Carbs, setCarbs] = React.useState(0);
   const [Fats, setFats] = React.useState(0);

@@ -447,7 +447,7 @@ const progressTracking_getWeight = async () => {
         token,
       },
     );
- 
+
     return response.data;
   } catch (error) {
     alert(error.message);
@@ -461,7 +461,7 @@ const progressTracking_getBodyFatPercentage = async () => {
         token,
       },
     );
- 
+
     return response.data;
   } catch (error) {
     alert(error.message);
@@ -475,12 +475,12 @@ const progressTracking_getMaintenanceCalories = async () => {
         token,
       },
     );
- 
+
     return response.data;
   } catch (error) {
     alert(error.message);
   }
-}; 
+};
 const progressTracking_getCalories = async () => {
   try {
     const response = await axios.post(
@@ -489,7 +489,7 @@ const progressTracking_getCalories = async () => {
         token,
       },
     );
- 
+   
     return response.data;
   } catch (error) {
     alert(error.message);
@@ -503,12 +503,12 @@ const progressTracking_getProtein = async () => {
         token,
       },
     );
- 
+
     return response.data;
   } catch (error) {
     alert(error.message);
   }
-}; 
+};
 const progressTracking_getCarbs = async () => {
   try {
     const response = await axios.post(
@@ -517,7 +517,7 @@ const progressTracking_getCarbs = async () => {
         token,
       },
     );
- 
+
     return response.data;
   } catch (error) {
     alert(error.message);
@@ -531,12 +531,12 @@ const progressTracking_getFats = async () => {
         token,
       },
     );
- 
+
     return response.data;
   } catch (error) {
     alert(error.message);
   }
-}; 
+};
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
@@ -574,7 +574,7 @@ export const DataProvider = ({children}) => {
         diaryhistory,
         progressTracking_getWeight,
         progressTracking_getBodyFatPercentage,
-        progressTracking_getMaintenanceCalories
+        progressTracking_getMaintenanceCalories,
       }}>
       {children}
     </DataContext.Provider>

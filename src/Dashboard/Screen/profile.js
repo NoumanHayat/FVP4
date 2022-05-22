@@ -59,7 +59,7 @@ const profile = (props) => {
             <Text style={{fontSize: 20,color:'#3C5AC4'}}>Subscription</Text>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity}>
+          <TouchableOpacity style={styles.touchableOpacity} onPress={()=>{navigation.push("WorkoutDashboard")}}>
             <Icon
               name="bar-chart-outline"
               style={{paddingRight: 10}}

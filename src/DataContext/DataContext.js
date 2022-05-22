@@ -537,6 +537,71 @@ const progressTracking_getFats = async () => {
     alert(error.message);
   }
 };
+
+const workoutGerneration = async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/workoutbuilderRoutes/generateWorkout`,
+      {
+        token: token,
+        trainingIntensity: props[1].intensity,
+        targetMuscle: props[4].muscle,
+        trainingType: props[0].type,
+      },
+    );
+
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+const LogWorkout = async props => {
+  console.log('============================');
+  console.log(props[0]);
+  // try {
+  //   const response = await axios.post(
+  //     `http://${ip}:3000/api/workoutbuilderRoutes/logWorkout`,
+  //     {
+  //       token: token,
+  //     },
+  //   );
+
+  //   return response.data;
+  // } catch (error) {
+  //   alert(error.message);
+  // }
+};
+const getWorkout = async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/workoutbuilderRoutes/getWorkout`,
+      {
+        token: token,
+      },
+    );
+
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+const plansCard = async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/workoutbuilderRoutes/plansCard`,
+      {
+        token: token,
+      },
+    );
+
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
@@ -575,6 +640,12 @@ export const DataProvider = ({children}) => {
         progressTracking_getWeight,
         progressTracking_getBodyFatPercentage,
         progressTracking_getMaintenanceCalories,
+        LogWorkout,
+        getWorkout,
+        plansCard,
+        workoutGerneration
+
+
       }}>
       {children}
     </DataContext.Provider>

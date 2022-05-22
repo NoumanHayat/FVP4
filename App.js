@@ -38,6 +38,16 @@ import progresstrackingCalories from './src/progresstracking/Calories';
 import Carbs from './src/progresstracking/Carbs';
 import Protein from './src/progresstracking/Protein';
 import Fats from './src/progresstracking/Fats';
+import CreateWorkout from './src/WorkoutBuilder/Screens/CreateWorkout';
+import MoreInfo from './src/WorkoutBuilder/Screens/Generator/MoreInfo';
+import MuscleGroup from './src/WorkoutBuilder/Screens/Generator/MuscleGroup';
+import TrainingType from './src/WorkoutBuilder/Screens/Generator/TrainingType';
+import Workout from './src/WorkoutBuilder/Screens/Generator/Workout';
+import Logger from './src/WorkoutBuilder/Screens/Logger';
+import Plans from './src/WorkoutBuilder/Screens/Plans';
+import Recommendations from './src/WorkoutBuilder/Screens/Recommendations';
+import WorkoutDashboard from './src/WorkoutBuilder/Screens/WorkoutDashboard';
+import WorkoutDetail from './src/WorkoutBuilder/Screens/WorkoutDetail';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -92,7 +102,17 @@ const App = () => {
           <Stack.Screen name="Protein" component={Protein} />
           <Stack.Screen name="Fats" component={Fats} />
 
+          <Stack.Screen name="WorkoutDashboard" component={WorkoutDashboard} />
+          <Stack.Screen name="MoreInfo" component={MoreInfo} />
+          <Stack.Screen name="MuscleGroup" component={MuscleGroup} />
+          <Stack.Screen name="Workout" component={Workout} />
+          <Stack.Screen name="CreateWorkout" component={CreateWorkout} />
 
+          <Stack.Screen name="WorkoutDetail" component={WorkoutDetail} />
+          <Stack.Screen name="Plans" component={Plans} />
+          <Stack.Screen name="TrainingType" component={TrainingType} />
+          <Stack.Screen name="Logger" component={Logger} />
+          <Stack.Screen name="Recommendations" component={Recommendations} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -62,7 +62,6 @@ const MuscleGroup = ({navigation, route}) => {
                 ]);
                 console.log(a);
                 if (a.status == 'success') {
-                  alert('added successfully');
 
                   navigation.navigate('Workout', a.message[0].exercises);
                 } else {

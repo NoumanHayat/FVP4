@@ -30,7 +30,10 @@ const Plans = props => {
       <ScrollView style={Styles.scrollView}>
         <View style={Styles.block}>
           {total.map(item => {
-            console.log(item.WorkoutType[0].workoutName);
+            
+
+            console.log("=========================")
+            console.log(item)
             return (
               <TouchableOpacity
                 key={item._id}
@@ -45,7 +48,7 @@ const Plans = props => {
                     />
                     <View style={Styles.CardFooter}>
                       <Text style={Styles.CardTitle}>
-                        {item.WorkoutType[0].workoutName}
+                        {item.WorkoutType[0].workoutName} 
                       </Text>
                       <View style={Styles.inlineDetails}>
                         <Text style={Styles.cardDetails}>

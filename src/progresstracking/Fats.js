@@ -343,7 +343,7 @@ const weight = () => {
             return (
               <DataTable.Row>
                 <DataTable.Cell>{item.Date}</DataTable.Cell>
-                <DataTable.Cell>{item.Fats}</DataTable.Cell>
+                <DataTable.Cell>{parseInt(item.Fats)}</DataTable.Cell>
               </DataTable.Row>
             );
           }}

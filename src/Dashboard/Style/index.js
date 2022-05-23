@@ -572,7 +572,9 @@ export const Coaching = StyleSheet.create({
   checkInButton: {
     padding: 10,
     margin: 10,
-    marginTop: 50,
+    marginTop:3,
+    paddingTop:3,
+    // marginTop: 50,
   },
   touchableOpacity: {
     borderColor: '#CEE1D0',

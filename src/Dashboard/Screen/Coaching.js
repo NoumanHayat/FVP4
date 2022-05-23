@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {Coaching as styles} from '../Style/index';
 import {Divider} from 'react-native-paper';
+import {ProgressView} from '@react-native-community/progress-view';
 
 import DataContext from '../../DataContext/DataContext';
 
@@ -146,7 +147,7 @@ const Coaching = props => {
           </TouchableOpacity>
         </View>
         {/* ================================================================================================== */}
-        <View style={{marginLeft:'10%',marginRight:'10%'}}>
+        <View style={{marginLeft: '10%', marginRight: '10%'}}>
           <TouchableOpacity
             style={{
               backgroundColor: 'blue',
@@ -158,8 +159,10 @@ const Coaching = props => {
               alignItems: 'center',
               marginTop: 20,
             }}
-            onPress={()=>{navigation.push("WorkoutDashboard")}}>
-            <Text 
+            onPress={() => {
+              navigation.push('WorkoutDashboard');
+            }}>
+            <Text
               style={{
                 fontSize: 18,
                 fontFamily: 'Gill Sans',
@@ -185,7 +188,12 @@ const Coaching = props => {
         </View>
         <Divider />
         <View style={styles.progressBar}>
-          <Progress.Bar color="black" progress={0.7} width={300} height={20} />
+          <Progress.Bar color="orange" progress={0.7} width={300} height={15} />
+          <ProgressView
+            progressTintColor="orange"
+            trackTintColor="blue"
+            progress={0.7}
+          />
         </View>
         <View style={styles.checkInButton}>
           <TouchableOpacity

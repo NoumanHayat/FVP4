@@ -566,6 +566,8 @@ export const Coaching = StyleSheet.create({
   progressBar: {
     margin: 10,
     padding: 10,
+    paddingBottom:0,
+    marginBottom:0,
     alignItems: 'center',
     justifyContent: 'center',
   },

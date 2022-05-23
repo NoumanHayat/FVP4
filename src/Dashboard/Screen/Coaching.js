@@ -29,7 +29,6 @@ const Coaching = props => {
         })
         .catch(error => {});
       setDetail(a);
-      
     }
     fetchData();
   }, []);
@@ -66,25 +65,84 @@ const Coaching = props => {
         <Divider />
         <View style={styles.containerThird}>
           <TouchableOpacity
-            style={styles.touchableOpacity}
+            style={{
+              backgroundColor: 'blue',
+              // width: 200,
+              // height: 40,
+              borderRadius: 15,
+              position: 'relative',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginLeft: 3,
+            }}
             onPress={() => {
               navigation.navigate('checkInHsitory');
             }}>
-            <Text style={{fontSize: 15, padding: 20}}>CheckIn History </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                fontFamily: 'Gill Sans',
+                textAlign: 'center',
+                margin: 10,
+                color: 'white',
+                backgroundColor: 'transparent',
+              }}>
+              CheckIn History
+            </Text>
           </TouchableOpacity>
+
           <TouchableOpacity
-            style={styles.touchableOpacity}
+            style={{
+              backgroundColor: 'blue',
+              // width: 200,
+              // height: 40,
+              borderRadius: 15,
+              position: 'relative',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginLeft: 3,
+            }}
             onPress={() => {
-              navigation.navigate('chatBot');
+              navigation.push('chatBot');
             }}>
-            <Text style={{fontSize: 15, padding: 20}}>Chat Bot </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                fontFamily: 'Gill Sans',
+                textAlign: 'center',
+                margin: 10,
+                color: 'white',
+                backgroundColor: 'transparent',
+              }}>
+              Chat Bot
+            </Text>
           </TouchableOpacity>
+
           <TouchableOpacity
-            style={styles.touchableOpacity}
+            style={{
+              backgroundColor: 'blue',
+              // width: 200,
+              // height: 40,
+              borderRadius: 15,
+              position: 'relative',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginLeft: 3,
+            }}
             onPress={() => {
-              navigation.navigate('DailyWeight');
+              navigation.push('DailyWeight');
             }}>
-            <Text style={{fontSize: 15, padding: 20}}>Add DailyWeight </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                fontFamily: 'Gill Sans',
+                textAlign: 'center',
+                margin: 10,
+                color: 'white',
+                backgroundColor: 'transparent',
+              }}>
+              Add DailyWeight
+            </Text>
           </TouchableOpacity>
         </View>
         <Divider />
@@ -103,12 +161,38 @@ const Coaching = props => {
           <Progress.Bar color="black" progress={0.7} width={300} height={20} />
         </View>
         <View style={styles.checkInButton}>
-          <Button
+          {/* <Button
             title="Check in"
             onPress={() => {
               navigation.push('CheckIn1');
             }}
-          />
+          /> */}
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'blue',
+              // width: 200,
+              // height: 40,
+              borderRadius: 15,
+              position: 'relative',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 20,
+            }}
+            onPress={() => {
+              navigation.push('CheckIn1');
+            }}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontFamily: 'Gill Sans',
+                textAlign: 'center',
+                margin: 10,
+                color: '#ffffff',
+                backgroundColor: 'transparent',
+              }}>
+              Check in
+            </Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>

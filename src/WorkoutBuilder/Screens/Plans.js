@@ -32,8 +32,7 @@ const Plans = props => {
           {total.map(item => {
             
 
-            console.log("=========================")
-            console.log(item)
+          
             return (
               <TouchableOpacity
                 key={item._id}

@@ -69,7 +69,7 @@ const profile = (props) => {
             <Text style={{fontSize: 20,color:'#3C5AC4'}}>Couch Setting</Text>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity}>
+          <TouchableOpacity style={styles.touchableOpacity} onPress={()=>{navigation.push("helpSupport")}}>
             <Icon
               name="ios-call-outline"
               style={{paddingRight: 10}}

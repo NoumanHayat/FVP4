@@ -60,10 +60,10 @@ const MuscleGroup = ({navigation, route}) => {
                     muscle: item,
                   },
                 ]);
-                console.log(a);
                 if (a.status == 'success') {
 
-                  navigation.navigate('Workout', a.message[0].exercises);
+                  // navigation.navigate('Workout', a.message[0].exercises);
+                  navigation.navigate('Workout', a.message[0]);
                 } else {
                   alert("can't add");
                 }

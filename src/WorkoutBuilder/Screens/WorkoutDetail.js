@@ -11,7 +11,6 @@ import {DataTable} from 'react-native-paper';
 
 const WorkoutDetail = ({navigation, route}) => {
   const prevParams = route.params;
-  console.log(prevParams);
   const dataDummy = [
     {
       key: 1,

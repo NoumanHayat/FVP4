@@ -324,7 +324,7 @@ const chatBot = props => {
       <Button
         title="Back"
         onPress={() => {
-          navigation.navigate('Dashboard');
+          navigation.push('Dashboard');
         }}
       />
       <GiftedChat

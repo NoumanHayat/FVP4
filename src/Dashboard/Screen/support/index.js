@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {index as styles} from './Style';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {Input} from 'react-native-elements';
@@ -15,8 +15,8 @@ const index = props => {
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
   return (
-    <View style={styles.container}>
-      <Text style={styles.hello}>Say Hello!</Text>
+    <View style={styles.container}> 
+      {/* <Text style={styles.hello}>Say Hello!</Text> */}
       <View style={styles.textArea}>
         <Input
           placeholder="Title"
@@ -33,35 +33,42 @@ const index = props => {
           <Picker.Item label="Other" value="Other" />
         </Picker>
 
-        <TextInput
+        <TextInput style={{backgroundColor:'white'}}
           onChangeText={e => {
             setDetail(e);
           }}
           multiline={true}
-          numberOfLines={13}
+          numberOfLines={17}
           mode="outlined"
           label="Please provide details"
           placeholder="Type something"
         />
-        <LinearGradient
-          start={{x: 0.3, y: 0.25}}
-          end={{x: 0.5, y: 0.7}}
-          locations={[0.3, 1.0, 0.6]}
-          colors={['#3D6ABA', '#2F569D', '#20478D']}
-          style={styles.linearGradient}>
-          <TouchableOpacity
-            onPress={() => {
-                if(title=="" || detail==""){
-                    alert("Please provide details")
-                }else{
-                    alert("Your issue is recorded. We will context your on your email")
-                }
-            }}>
-            <Text style={styles.buttonText}>Create Account</Text>
-          </TouchableOpacity>
-        </LinearGradient>
+
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'blue',
+            // width: 200,
+            // height: 40,
+            borderRadius: 15,
+            position: 'relative',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop:20,
+          }}
+          onPress={() => {
+            if (title == '' || detail == '') {
+              alert('Please provide details');
+            } else {
+              alert(
+                'Your issue is recorded. We will context your on your email',
+              );
+            }
+          }}> 
+          <Text style={styles.buttonText}>Create Account</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
 export default index;
+ 

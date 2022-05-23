@@ -52,7 +52,6 @@ const MoreInfo = ({navigation, route}) => {
         step={1}
         minimumValue={1}
         maximumValue={7}
-        // onValueChange={value => console.log(value)} {set setter function here}
         minimumTrackTintColor="#0070ff"
         maximumTrackTintColor="#0070ff"
         thumbTintColor="white"

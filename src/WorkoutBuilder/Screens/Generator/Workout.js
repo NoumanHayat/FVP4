@@ -16,7 +16,7 @@ const Workout = ({navigation, route}) => {
   const prevParams = route.params;
 
   // store params
-  const selectedItems = route.params;
+  const selectedItems = prevParams.exercises;
 
   return (
     <View style={Styles.container}>
@@ -47,7 +47,7 @@ const Workout = ({navigation, route}) => {
         <ScrollView style={Styles.scrollableContainer}>
           {selectedItems.map(item => {
             return (
-              <DataTable.Row key={item._id}>
+              <DataTable.Row key={item.name}>
                 <DataTable.Cell>
                   <Text style={{color: '#E0E0E0', fontSize: 13}}>
                     {item.name}
@@ -78,8 +78,13 @@ const Workout = ({navigation, route}) => {
       </DataTable>
       <TouchableOpacity
         onPress={async () => {
-          console.log(selectedItems[0]);
-          // await LogWorkout(selectedItems);
+          const a=await LogWorkout(prevParams);
+          if(a.status===200){
+            alert("added successfly")
+            navigation.push("Dashboard")
+          }else{
+            alert("Error")
+          }
         }}>
         <Text style={Styles.button}>Log Workout</Text>
       </TouchableOpacity>

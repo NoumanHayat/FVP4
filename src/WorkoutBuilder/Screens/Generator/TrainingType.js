@@ -290,7 +290,6 @@ const TrainingType = ({navigation}) => {
           } else {
             // naviagate to push screen and also pass the type
             navigation.push('MoreInfo', [{type}]);
-            console.log({type});
           }
         }}>
         <Text

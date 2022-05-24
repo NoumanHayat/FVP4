@@ -59,7 +59,14 @@ const weight = () => {
   //=============================================================================
   useEffect(() => {
     async function fetchData() {
-      const a = await progressTracking_getMaintenanceCalories();
+      const d = await progressTracking_getMaintenanceCalories();
+      var a={
+        
+        weeklyLabel:d.weeklyLabel.reverse(),
+        weeklyData:d.weeklyData.reverse(),
+        MonthlyLabel:d.MonthlyLabel.reverse(),
+        MonthlyData:d.MonthlyData.reverse(),
+      }
       setDetail(a);
       setLabels(a.weeklyLabel);
       setValues(a.weeklyData);

@@ -60,7 +60,15 @@ const weight = props => {
 
   useEffect(() => {
     async function fetchData() {
-      const a = await progressTracking_getWeight();
+      const d = await progressTracking_getWeight();
+      var a={
+        DailyLabel:d.DailyLabel.reverse(),
+        DailyData: d.DailyData.reverse(),
+        weeklyLabel:d.weeklyLabel.reverse(),
+        weeklyData:d.weeklyData.reverse(),
+        MonthlyLabel:d.MonthlyLabel.reverse(),
+        MonthlyData:d.MonthlyData.reverse(),
+      }
       setDetail(a);
       setLabels(a.DailyLabel);
       setValues(a.DailyData);

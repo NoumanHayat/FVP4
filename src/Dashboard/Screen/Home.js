@@ -8,20 +8,28 @@ import {ButtonGroup, Card} from 'react-native-elements';
 import DataContext from '../../DataContext/DataContext';
 
 const HomeScreen = props => {
-  const {todayDiaryDetail, diaryhistory} = useContext(DataContext);
+  const navigation = props.navigation;
+  const {todayDiaryDetail, diaryhistory, checkPayment} =
+    useContext(DataContext);
   const [todayDiary, setTodayDiary] = React.useState({});
   //=========================================New Content============================================================
   const {currentWeekPercentage} = useContext(DataContext);
-  const [Calories, setCalories] = React.useState(0); 
+  const [Calories, setCalories] = React.useState(0);
   const [Protein, setProtein] = React.useState(0);
   const [Carbs, setCarbs] = React.useState(0);
   const [Fats, setFats] = React.useState(0);
   const [Dhistory, setDHistory] = React.useState([]);
   useEffect(() => {
-    async function fetchData() { 
+    async function fetchData() {
+      const CPayment = await checkPayment();
+
+      if (!CPayment.available) {
+        navigation.push('paymentPlan');
+      }
+
       setTodayDiary(await todayDiaryDetail());
       const a = await currentWeekPercentage();
-      // const dh = await diaryhistory(); 
+      // const dh = await diaryhistory();
       //===========================
       diaryhistory()
         .then(dh => {
@@ -41,7 +49,7 @@ const HomeScreen = props => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [selectedIndexes, setSelectedIndexes] = React.useState([]);
   const [check, setCheck] = React.useState(false);
-  const navigation = props.navigation;
+
   const data = {
     labels: ['Calories', 'Protein', 'Carbs', 'Fat'], // optional
     data: [Calories, Protein, Carbs, Fats],
@@ -53,7 +61,7 @@ const HomeScreen = props => {
 
   var displayDate = useRef(0);
   const [date, setDate] = useState(new Date());
-  
+
   //====================================================================================================
   // const previousData = {
   //   labels: ['Calories', 'Protein', 'Carbs', 'Fat'], // optional
@@ -86,7 +94,6 @@ const HomeScreen = props => {
               var dat = new Date();
               dat.setDate(dat.getDate() - displayDate.current);
               setDate(dat);
-             
             }
           }}>
           <Icon name="arrow-left" size={32} color="black" />
@@ -104,7 +111,6 @@ const HomeScreen = props => {
               var dat = new Date();
               dat.setDate(dat.getDate() - displayDate.current);
               setDate(dat);
-             
             }
           }}>
           <Icon name="arrow-right" size={32} color="black" />
@@ -142,7 +148,7 @@ const HomeScreen = props => {
               }}
               hideLegend={false}
             />
-          </View> 
+          </View>
           <View style={styles.buttonGroupStyle}>
             <ButtonGroup
               // buttonStyle={{width: 100}}
@@ -287,24 +293,24 @@ const HomeScreen = props => {
               data={[
                 {
                   title: Dhistory[0].title,
-                  Calories: Dhistory[0].Calories[displayDate.current-1],
-                  Protein: Dhistory[0].Protein[displayDate.current-1],
-                  Carbs: Dhistory[0].Carbs[displayDate.current-1],
-                  Fats: Dhistory[0].Fats[displayDate.current-1],
+                  Calories: Dhistory[0].Calories[displayDate.current - 1],
+                  Protein: Dhistory[0].Protein[displayDate.current - 1],
+                  Carbs: Dhistory[0].Carbs[displayDate.current - 1],
+                  Fats: Dhistory[0].Fats[displayDate.current - 1],
                 },
                 {
                   title: Dhistory[1].title,
-                  Calories: Dhistory[1].Calories[displayDate.current-1],
-                  Protein: Dhistory[1].Protein[displayDate.current-1],
-                  Carbs: Dhistory[1].Carbs[displayDate.current-1],
-                  Fats: Dhistory[1].Fats[displayDate.current-1],
+                  Calories: Dhistory[1].Calories[displayDate.current - 1],
+                  Protein: Dhistory[1].Protein[displayDate.current - 1],
+                  Carbs: Dhistory[1].Carbs[displayDate.current - 1],
+                  Fats: Dhistory[1].Fats[displayDate.current - 1],
                 },
                 {
                   title: Dhistory[2].title,
-                  Calories: Dhistory[2].Calories[displayDate.current-1],
-                  Protein: Dhistory[2].Protein[displayDate.current-1],
-                  Carbs: Dhistory[2].Carbs[displayDate.current-1],
-                  Fats: Dhistory[2].Fats[displayDate.current-1],
+                  Calories: Dhistory[2].Calories[displayDate.current - 1],
+                  Protein: Dhistory[2].Protein[displayDate.current - 1],
+                  Carbs: Dhistory[2].Carbs[displayDate.current - 1],
+                  Fats: Dhistory[2].Fats[displayDate.current - 1],
                 },
               ]}
               renderItem={({item, index, separators}) => {

@@ -606,12 +606,26 @@ const plansCard = async props => {
     alert(error.message);
   }
 };
+const checkPayment =async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/payment/checkPayment`,
+      {
+        token: token,
+      },
+    );
 
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+}
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
     <DataContext.Provider
       value={{
+        checkPayment,
         progressTracking_getCalories,
         progressTracking_getProtein,
         progressTracking_getCarbs,

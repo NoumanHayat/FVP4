@@ -187,14 +187,14 @@ const Coaching = props => {
           </View>
         </View>
         <Divider />
-        <View style={styles.progressBar}>
+        {/* <View style={styles.progressBar}>
           <Progress.Bar color="orange" progress={0.7} width={300} height={15} />
           <ProgressView
             progressTintColor="orange"
             trackTintColor="blue"
             progress={0.7}
-          />
-        </View>
+          /> 
+        </View> */}
         <View style={styles.checkInButton}>
           <TouchableOpacity
             style={{

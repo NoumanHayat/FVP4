@@ -10,12 +10,12 @@ import DataContext from '../../../DataContext/DataContext';
 // import {View, Text} from 'react-native';
 const index = props => {
   const {helpAndSupport} = useContext(DataContext);
-
+  const navigation = props.navigation;
   const [issue, setIssue] = useState('subscription');
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
   return (
-    <View style={styles.container}> 
+    <View style={styles.container}>
       {/* <Text style={styles.hello}>Say Hello!</Text> */}
       <View style={styles.textArea}>
         <Input
@@ -33,7 +33,8 @@ const index = props => {
           <Picker.Item label="Other" value="Other" />
         </Picker>
 
-        <TextInput style={{backgroundColor:'white'}}
+        <TextInput
+          style={{backgroundColor: 'white'}}
           onChangeText={e => {
             setDetail(e);
           }}
@@ -53,22 +54,23 @@ const index = props => {
             position: 'relative',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop:20,
+            marginTop: 20,
           }}
-          onPress={() => {
+          onPress={async () => {
             if (title == '' || detail == '') {
               alert('Please provide details');
             } else {
+              await helpAndSupport(title, issue, detail);
               alert(
                 'Your issue is recorded. We will context your on your email',
               );
+              navigation.push('Dashboard');
             }
-          }}> 
-          <Text style={styles.buttonText}>Create Account</Text>
+          }}>
+          <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 export default index;
- 

@@ -78,8 +78,9 @@ const Workout = ({navigation, route}) => {
       </DataTable>
       <TouchableOpacity
         onPress={async () => {
-          const a=await LogWorkout(prevParams);
-          if(a.status===200){
+          const a=await LogWorkout(prevParams); 
+          
+          if(a===200){
             alert("added successfly")
             navigation.push("Dashboard")
           }else{

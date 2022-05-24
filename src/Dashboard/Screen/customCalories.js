@@ -167,7 +167,9 @@ const index = props => {
               setQuery(e);
             }}
             onEndEditing={async () => {
+              console.log("Working")
               const results = await searchFood(query);
+              console.log(results)
               setResult(results);
             }}
             value={query}
@@ -238,7 +240,7 @@ const index = props => {
                       calories,
                       protein,
                       corbs,
-                      fats,
+                      fats, 
                     });
 
                     res

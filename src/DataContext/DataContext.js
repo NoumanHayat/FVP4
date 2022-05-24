@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ip = '172.22.48.1';
+const ip = '172.31.224.1';
 // var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjAzMzlhYjIxNmJiZjE4NmZmOTdjZCIsImlhdCI6MTY1MDQ4MzE5NiwiZXhwIjoxNjU4MjU5MTk2fQ.b3PibfH5oa86FFGq97SxHLZsqhwZpkuie1CW8KSi14c';
 var userId = '';
 var token = ' ';
@@ -103,6 +103,7 @@ const addCalories = async props => {
     const response = await axios.post(
       `http://${ip}:3000/api/meal/addMeal`,
       {
+        token: token,
         MealType: props.type,
         FoodName: props.foodName,
         Calories: props.calories,
@@ -157,6 +158,7 @@ const DeleteFood = async props => {
   }
 };
 const searchFood = async props => {
+  console.log("=============================")
   try {
     const response = await axios.post(
       `https://trackapi.nutritionix.com/v2/natural/nutrients`,
@@ -172,13 +174,12 @@ const searchFood = async props => {
         },
       },
     );
-
     const FoodName = response.data.foods[0].food_name;
     const Calories = response.data.foods[0].nf_calories;
     const Protein = response.data.foods[0].nf_protein;
     const Carbs = response.data.foods[0].nf_total_carbohydrate;
     const Fats = response.data.foods[0].nf_total_fat;
-
+      console.log("=============================")
     return {FoodName, Calories, Protein, Carbs, Fats};
   } catch (error) {
     alert(error.message);
@@ -321,18 +322,18 @@ const currentWeekPercentage = async props => {
     // alert(error.message);
   }
 };
-const helpAndSupport = async props => {
+const helpAndSupport = async (title,type,details) => {
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/user/helpAndSupport`,
       {
         token: token,
-        title: props.title,
-        type: props.type,
-        details: props.details,
+        title: title,
+        type: type,
+        details: details,
       },
     );
-
+      console.log(response);
     return response.data;
   } catch (error) {
     alert(error.message);
@@ -571,7 +572,7 @@ const LogWorkout = async props => {
       },
     );
     console.log(response.status);
-    return response.data;
+    return response.status;
   } catch (error) {
     alert(error.message);
   }

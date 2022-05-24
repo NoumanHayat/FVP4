@@ -157,34 +157,57 @@ const DeleteFood = async props => {
     alert(error.message);
   }
 };
+// const searchFood = async props => {
+//   console.log("=============================")
+//   console.log(props)
+//   try {
+//     const response = await axios.post(
+//       `https://trackapi.nutritionix.com/v2/natural/nutrients`,
+//       {
+//         query: props,
+//       },
+//       {
+//         headers: {
+//           Connection: 'keep-alive',
+//           'Content-Type': 'application/json',
+//           'x-app-id': '0c77ef17',
+//           'x-app-key': '9d318186320499a030ae51573a28f342',
+//         },
+//       },
+//     );
+//     console.log(response)
+//     const FoodName = response.data.foods[0].food_name;
+//     const Calories = response.data.foods[0].nf_calories;
+//     const Protein = response.data.foods[0].nf_protein;
+//     const Carbs = response.data.foods[0].nf_total_carbohydrate;
+//     const Fats = response.data.foods[0].nf_total_fat;
+//       console.log("=============================")
+//     return {FoodName, Calories, Protein, Carbs, Fats};
+//   } catch (error) {
+//     alert(error.message);
+//   }
+// };
 const searchFood = async props => {
-  console.log("=============================")
   try {
-    const response = await axios.post(
-      `https://trackapi.nutritionix.com/v2/natural/nutrients`,
-      {
-        query: props,
-      },
-      {
-        headers: {
-          Connection: 'keep-alive',
-          'Content-Type': 'application/json',
-          'x-app-id': '0c77ef17',
-          'x-app-key': '9d318186320499a030ae51573a28f342',
-        },
-      },
-    );
-    const FoodName = response.data.foods[0].food_name;
-    const Calories = response.data.foods[0].nf_calories;
-    const Protein = response.data.foods[0].nf_protein;
-    const Carbs = response.data.foods[0].nf_total_carbohydrate;
-    const Fats = response.data.foods[0].nf_total_fat;
-      console.log("=============================")
-    return {FoodName, Calories, Protein, Carbs, Fats};
-  } catch (error) {
-    alert(error.message);
-  }
-};
+        const response = await axios.post(
+          `http://${ip}:3000/api/external/searchFood`,
+          {
+            query: props,
+          }
+        );
+        console.log(response.data)
+        const FoodName = response.data.food_name;
+        const Calories = response.data.nf_calories;
+        const Protein = response.data.nf_protein;
+        const Carbs = response.data.nf_total_carbohydrate;
+        const Fats = response.data.nf_total_fat;
+          
+        return {FoodName, Calories, Protein, Carbs, Fats};
+      } catch (error) {
+        alert(error.message);
+      }
+}
+
 const forgotPassword = async props => {
   try {
     const response = await axios.post(
@@ -620,12 +643,27 @@ const checkPayment =async props => {
     alert(error.message);
   }
 }
+const exercisedb =async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/external/exercisedb`,
+      {
+        token: token,
+      },
+    );
+
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+}
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
     <DataContext.Provider
       value={{
         checkPayment,
+        exercisedb,
         progressTracking_getCalories,
         progressTracking_getProtein,
         progressTracking_getCarbs,

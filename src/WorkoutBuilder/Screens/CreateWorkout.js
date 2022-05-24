@@ -1,5 +1,5 @@
 import {xorBy} from 'lodash';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,9 +9,11 @@ import {
 } from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import SelectBox from 'react-native-multi-selectbox';
+import DataContext from '../../DataContext/DataContext';
 
-const CreateWorkout = ({navigation}) => {
+const CreateWorkout = ({navigation}) => { 
   const [selectedItems, setSelectedItems] = useState([]);
+  const {exercisedb} = useContext(DataContext);
   const [data, setData] = useState([]);
   const [RPE, setRPE] = useState([]);
   const [reps, setreps] = useState([]);
@@ -29,35 +31,39 @@ const CreateWorkout = ({navigation}) => {
   };
   // business Logic
   // fetchftn
-  const fetchData = async query => {
-    const url = `https://exercisedb.p.rapidapi.com/exercises`;
-    try {
-      const response = await fetch(url, {
-        headers: {
-          'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-          'X-RapidAPI-Key':
-            'a36c20a5bcmshb529a2251134ea8p1997a9jsn28babe874eb1',
-        },
-      });
-      const jsonData = await response.json();
-      // destructure the response and create a new object with the same properties
-      const newData = jsonData.map(
-        ({bodyPart, equipment, gifUrl, id, name, target}) => ({
-          item: name,
-          id,
-        }),
-      );
+  // const fetchData = async query => {
+  //   const url = `https://exercisedb.p.rapidapi.com/exercises`;
+  //   try {
+  //     const response = await fetch(url, {
+  //       headers: {
+  //         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+  //         'X-RapidAPI-Key':
+  //           'fa2b0918fcmsh7fee6645c618c82p1da69djsnab5407aca4c4',
+  //       },
+  //     });
+  //     const jsonData = await response.json();
+  //     // destructure the response and create a new object with the same properties
+  //     const newData = jsonData.map(
+  //       ({bodyPart, equipment, gifUrl, id, name, target}) => ({
+  //         item: name,
+  //         id,
+  //       }),
+  //     );
 
-      setData(newData);
-      return newData;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     setData(newData);
+  //     return newData;
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   // api call
   useEffect(() => {
     async function fetchDatas() {
-      setData(await fetchData());
+      var a = await exercisedb();
+      console.log(a)
+      setData(a);
+     
     }
     fetchDatas();
   }, []);

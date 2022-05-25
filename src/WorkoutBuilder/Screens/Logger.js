@@ -413,7 +413,6 @@ const Logger = props => {
       },
     ],
   ]);
-  console.log(total[0]);
   const {getWorkout} = useContext(DataContext);
   useEffect(() => {
     async function fetchData() {
@@ -423,7 +422,6 @@ const Logger = props => {
     }
     fetchData();
   }, []);
-  // console.log(total[2]);
   const [date, setDate] = useState(new Date());
   var displayDate = useRef(0);
   return (

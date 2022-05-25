@@ -13,7 +13,7 @@ import DataContext from '../../DataContext/DataContext';
 
 const CreateWorkout = ({navigation}) => { 
   const [selectedItems, setSelectedItems] = useState([]);
-  const {exercisedb} = useContext(DataContext);
+  const {exercisedb,customMadeWorkout} = useContext(DataContext);
   const [data, setData] = useState([]);
   const [RPE, setRPE] = useState([]);
   const [reps, setreps] = useState([]);
@@ -31,37 +31,11 @@ const CreateWorkout = ({navigation}) => {
   };
   // business Logic
   // fetchftn
-  // const fetchData = async query => {
-  //   const url = `https://exercisedb.p.rapidapi.com/exercises`;
-  //   try {
-  //     const response = await fetch(url, {
-  //       headers: {
-  //         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-  //         'X-RapidAPI-Key':
-  //           'fa2b0918fcmsh7fee6645c618c82p1da69djsnab5407aca4c4',
-  //       },
-  //     });
-  //     const jsonData = await response.json();
-  //     // destructure the response and create a new object with the same properties
-  //     const newData = jsonData.map(
-  //       ({bodyPart, equipment, gifUrl, id, name, target}) => ({
-  //         item: name,
-  //         id,
-  //       }),
-  //     );
-
-  //     setData(newData);
-  //     return newData;
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
   // api call
   useEffect(() => {
     async function fetchDatas() {
       var a = await exercisedb();
-      console.log(a)
       setData(a);
      
     }
@@ -178,8 +152,8 @@ const CreateWorkout = ({navigation}) => {
             // send this data to DB first.
 
             // sendData(total)
-
-            navigation.navigate('WorkoutDashboard');
+            customMadeWorkout(total);
+            navigation.push('WorkoutDashboard');
           }}>
           <Text
             style={{

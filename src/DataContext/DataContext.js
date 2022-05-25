@@ -189,24 +189,24 @@ const DeleteFood = async props => {
 // };
 const searchFood = async props => {
   try {
-        const response = await axios.post(
-          `http://${ip}:3000/api/external/searchFood`,
-          {
-            query: props,
-          }
-        );
-        console.log(response.data)
-        const FoodName = response.data.food_name;
-        const Calories = response.data.nf_calories;
-        const Protein = response.data.nf_protein;
-        const Carbs = response.data.nf_total_carbohydrate;
-        const Fats = response.data.nf_total_fat;
-          
-        return {FoodName, Calories, Protein, Carbs, Fats};
-      } catch (error) {
-        alert(error.message);
-      }
-}
+    const response = await axios.post(
+      `http://${ip}:3000/api/external/searchFood`,
+      {
+        query: props,
+      },
+    );
+    console.log(response.data);
+    const FoodName = response.data.food_name;
+    const Calories = response.data.nf_calories;
+    const Protein = response.data.nf_protein;
+    const Carbs = response.data.nf_total_carbohydrate;
+    const Fats = response.data.nf_total_fat;
+
+    return {FoodName, Calories, Protein, Carbs, Fats};
+  } catch (error) {
+    alert(error.message);
+  }
+};
 
 const forgotPassword = async props => {
   try {
@@ -345,7 +345,7 @@ const currentWeekPercentage = async props => {
     // alert(error.message);
   }
 };
-const helpAndSupport = async (title,type,details) => {
+const helpAndSupport = async (title, type, details) => {
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/user/helpAndSupport`,
@@ -356,7 +356,7 @@ const helpAndSupport = async (title,type,details) => {
         details: details,
       },
     );
-      console.log(response);
+    console.log(response);
     return response.data;
   } catch (error) {
     alert(error.message);
@@ -580,8 +580,6 @@ const workoutGerneration = async props => {
   }
 };
 const LogWorkout = async props => {
-  
-
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/workoutbuilderRoutes/logWorkout`,
@@ -591,7 +589,7 @@ const LogWorkout = async props => {
         workoutName: props.name,
         targetMuscle: props.targetMuscle,
         intensity: props.intensity,
-        Exercise:props.exercises,
+        Exercise: props.exercises,
       },
     );
     console.log(response.status);
@@ -629,7 +627,7 @@ const plansCard = async props => {
     alert(error.message);
   }
 };
-const checkPayment =async props => {
+const checkPayment = async props => {
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/payment/checkPayment`,
@@ -642,8 +640,8 @@ const checkPayment =async props => {
   } catch (error) {
     alert(error.message);
   }
-}
-const exercisedb =async props => {
+};
+const exercisedb = async props => {
   try {
     const response = await axios.post(
       `http://${ip}:3000/api/external/exercisedb`,
@@ -656,12 +654,42 @@ const exercisedb =async props => {
   } catch (error) {
     alert(error.message);
   }
-}
+};
+const customMadeWorkout = async props => {
+  const Exercise= props.map(({id, item, sets, reps, RPE}) => {
+    return {
+      id,
+      name: item,
+      sets,
+      reps,
+      RPE,
+    };
+  });
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/workoutbuilderRoutes/logWorkout`,
+      {
+        token: token,
+        Type: 'Custom',
+        workoutName: 'Custom',
+        targetMuscle: 'Custom',
+        intensity: 'Custom',
+        Exercise: Exercise,
+      },
+    );
+
+    console.log(response.data);
+    return response.status;
+  } catch (error) {
+    alert(error.message);
+  }
+};
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
     <DataContext.Provider
       value={{
+        customMadeWorkout,
         checkPayment,
         exercisedb,
         progressTracking_getCalories,

@@ -265,3 +265,4 @@ export const resetPassword = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
+ 

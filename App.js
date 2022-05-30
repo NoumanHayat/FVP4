@@ -48,6 +48,7 @@ import Plans from './src/WorkoutBuilder/Screens/Plans';
 import Recommendations from './src/WorkoutBuilder/Screens/Recommendations';
 import WorkoutDashboard from './src/WorkoutBuilder/Screens/WorkoutDashboard';
 import WorkoutDetail from './src/WorkoutBuilder/Screens/WorkoutDetail';
+import paymentDashboard from './src/Payment/paymentDashbord';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -85,6 +86,7 @@ const App = () => {
           <Stack.Screen name="checkInHsitory" component={checkInHsitory} />
           <Stack.Screen name="paymentPlan" component={paymentPlan} />
           <Stack.Screen name="payment" component={payment} />
+          <Stack.Screen name="paymentDashboard" component={paymentDashboard} />
           <Stack.Screen name="weight" component={weight} />
           <Stack.Screen
             name="BodyFatPercentage"

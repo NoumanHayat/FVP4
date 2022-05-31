@@ -36,7 +36,7 @@ const chatBot = props => {
     },
   ]);
   useEffect(() => {
-    socket.current = io('ws://172.19.32.1:4000', {jsonp: false});
+    socket.current = io('ws://172.23.192.1:4000', {jsonp: false});
 
     socket.current.on('chatMessage', msg => {
       sendBotResponse(msg);
@@ -251,7 +251,7 @@ const chatBot = props => {
     if (props.currentMessage.isOptions) {
       return (
         <View>
-          <Text>{props.currentMessage.text}</Text>
+          <Text style={{color: 'black'}}>{props.currentMessage.text}</Text>
 
           <ScrollView style={{backgroundColor: 'white'}} horizontal={true}>
             {props.currentMessage.data.map(item => (
@@ -285,7 +285,7 @@ const chatBot = props => {
     } else if (props.currentMessage.isRecommend) {
       return (
         <ScrollView style={{backgroundColor: 'white'}} horizontal={false}>
-          <Text>{props.currentMessage.text}</Text>
+          <Text style={{color: 'black'}}>{props.currentMessage.text}</Text>
           {props.currentMessage.data.map(item => (
             <Card
               containerStyle={{
@@ -295,16 +295,10 @@ const chatBot = props => {
                 overflow: 'hidden',
               }}
               key={item.tipKey}>
-              <Text>{item.tip}</Text>
+              <Text style={{color: 'black'}}>{item.tip}</Text>
             </Card>
           ))}
-          <Button
-            title="Pricest Recommendations"
-            style={{height: 25, margin: 20}}
-            onPress={() => {
-              alert('Not completed yet');
-            }}
-          />
+          
         </ScrollView>
       );
     }

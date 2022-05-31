@@ -74,12 +74,12 @@ const index = props => {
             leftIcon={<Icon name="lock" size={15} color="black" />}
           />
           <View style={Styles.forgotPasswordContainer}>
-            <CheckBox
+            {/* <CheckBox
               center
               title="Remember Me"
-              checked={isSelected}
+              checked={isSelected} 
               onPress={() => setSelection(!isSelected)}
-            />
+            /> */}
 
             <TouchableOpacity
               onPress={() => {

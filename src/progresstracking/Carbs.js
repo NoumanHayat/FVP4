@@ -179,7 +179,7 @@ const weight = () => {
 
   return (
     <View style={{flex: 1, alignItems: 'center', padding: 15}}>
-      <Text>Bezier Line Chart</Text>
+      <Text style={{color: 'black'}}>Bezier Line Chart</Text>
       <LineChart
         data={{
           labels: labels,

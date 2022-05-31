@@ -26,7 +26,7 @@ passport.deserializeUser(function (user, done) {
 const screen = () => {
   return (
     <View>
-      <Text>hello</Text>
+      <Text style={{color: 'black'}}>hello</Text>
     </View>
   );
 };

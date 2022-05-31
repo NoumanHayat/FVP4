@@ -45,7 +45,7 @@ const FoodList = props => {
                   flex: 1,
                   // alignItems: 'center',
                 }}>
-                <Text>
+                <Text style={{color: 'black'}}>
                   {item.Calories}cals , {item.Protein} p , {item.Carbs} c ,{' '}
                   {item.Protein} p{' '}
                 </Text>

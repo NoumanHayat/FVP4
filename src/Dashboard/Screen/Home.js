@@ -102,7 +102,7 @@ const HomeScreen = props => {
           onPress={() => {
             alert('hello');
           }}>
-          <Text>{date.toDateString()}</Text>
+          <Text style={{color: 'black'}}>{date.toDateString()}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
@@ -205,7 +205,7 @@ const HomeScreen = props => {
                         flex: 1,
                         // alignItems: 'center',
                       }}>
-                      <Text>
+                      <Text style={{color: 'black'}}>
                         {parseInt(item.Calories)} cals ,{' '}
                         {parseInt(item.Protein)} p ,{parseInt(item.Carbs)} car ,{' '}
                         {parseInt(item.Fats)} f{' '}
@@ -328,7 +328,7 @@ const HomeScreen = props => {
                         flex: 1,
                         // alignItems: 'center',
                       }}>
-                      <Text>
+                      <Text style={{color: 'black'}}>
                         {parseInt(item.Calories)} cals ,{' '}
                         {parseInt(item.Protein)} p ,{parseInt(item.Carbs)} car ,{' '}
                         {parseInt(item.Fats)} f{' '}

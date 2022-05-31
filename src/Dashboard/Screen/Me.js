@@ -75,18 +75,7 @@ const profile = props => {
             </View>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity}>
-            <Text style={{fontSize: 15}}>Learn Body Mass</Text>
-            <View style={styles.arrow}>
-              <Icon
-                name="arrow-forward"
-                style={{paddingRight: 10, paddingTop: 12}}
-                size={20}
-                color="gray"
-              />
-            </View>
-          </TouchableOpacity>
-          <Divider />
+        
           <TouchableOpacity
             style={styles.touchableOpacity}
             onPress={() => {
@@ -172,18 +161,7 @@ const profile = props => {
             </View>
           </TouchableOpacity>
           <Divider />
-          <TouchableOpacity style={styles.touchableOpacity}>
-            <Text style={{fontSize: 15}}>Workout Sessions</Text>
-            <View style={styles.arrow}>
-              <Icon
-                name="arrow-forward"
-                style={{paddingRight: 10, paddingTop: 12}}
-                size={20}
-                color="gray"
-              />
-            </View>
-          </TouchableOpacity>
-          <Divider />
+          
         </View>
       </ScrollView>
     </View>

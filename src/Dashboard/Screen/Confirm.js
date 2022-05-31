@@ -32,19 +32,7 @@ const index = props => {
           <Text style={Styles.welcomeText}>Please Confirm your Details</Text>
         </View>
       </View>
-      {/* <View style={Styles.lowestContainer}>
-        <Text>Email:{props.route.params[0]}</Text>
-        <Text>Name:{props.route.params[1]}</Text>
-        <Text>Age:{props.route.params[4]}</Text>
-        <Text>Weight:{props.route.params[5]}</Text>
-        <Text>Height:{props.route.params[6]}</Text>
-        <Text>Gender:{props.route.params[7]}</Text>
-        <Text>Goal:{props.route.params[8]}</Text>
-        <Text>Activity:{props.route.params[9]}</Text>
-        <Text>Fat %:{props.route.params[10]}</Text>
-        <Text>Target Weight:{props.route.params[11]}</Text>
-        <Text>Target per Week:{props.route.params[12]}</Text>
-      </View> */}
+      
 
       <DataTable>
         <DataTable.Header>

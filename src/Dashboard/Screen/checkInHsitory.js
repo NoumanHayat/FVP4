@@ -142,7 +142,7 @@ const index = props => {
                     <Text style={{color: 'black', fontSize: 17}}>
                       {item.Date}
                     </Text> 
-                    <Text>{item.Status}:{item.Weight}-{item.PreviousWeight}={item.Weight-item.PreviousWeight} kgs/week</Text>
+                    <Text style={{color: 'black'}}>{item.Status}:{item.Weight}-{item.PreviousWeight}={item.Weight-item.PreviousWeight} kgs/week</Text>
                   </View>
                   <View style={Styles.IconArea}>
                     <Icon name="arrow-right" size={25} color="black" />

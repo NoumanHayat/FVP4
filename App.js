@@ -45,7 +45,7 @@ import TrainingType from './src/WorkoutBuilder/Screens/Generator/TrainingType';
 import Workout from './src/WorkoutBuilder/Screens/Generator/Workout';
 import Logger from './src/WorkoutBuilder/Screens/Logger';
 import Plans from './src/WorkoutBuilder/Screens/Plans';
-import Recommendations from './src/WorkoutBuilder/Screens/Recommendations';
+// import Recommendations from './src/WorkoutBuilder/Screens/Recommendations';
 import WorkoutDashboard from './src/WorkoutBuilder/Screens/WorkoutDashboard';
 import WorkoutDetail from './src/WorkoutBuilder/Screens/WorkoutDetail';
 import paymentDashboard from './src/Payment/paymentDashbord';
@@ -123,7 +123,7 @@ const App = () => {
           <Stack.Screen name="Plans" component={Plans} />
           <Stack.Screen name="TrainingType" component={TrainingType} />
           <Stack.Screen name="Logger" component={Logger} />
-          <Stack.Screen name="Recommendations" component={Recommendations} />
+          {/* <Stack.Screen name="Recommendations" component={Recommendations} /> */}
 
 
           {/* ============================ResetCoach=================================== */}

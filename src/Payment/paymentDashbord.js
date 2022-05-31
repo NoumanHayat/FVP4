@@ -27,7 +27,7 @@ const index = props => {
       <View>
         <View style={Styles.bottomContainer}>
           <Text style={Styles.welcomeText}>Welcome</Text>
-          <Text>Here are your Subscription Details</Text>
+          <Text style={{color: 'black'}}>Here are your Subscription Details</Text>
           <View style={Styles.lowerPart}>
             <Text style={{fontSize: 26, color: 'black'}}>
               Subscription Type:

@@ -685,41 +685,32 @@ const customMadeWorkout = async props => {
   }
 };
 const resetAccount = async props => {
-  console.log(props[0]);
-  console.log(props[1]);
-  console.log(props[2]);
-  console.log(props[3]);
-  console.log(props[4]);
-  console.log(props[5]);
-  console.log(props[6]);
-  console.log(props[7]);
-  // try {
-  //   const response = await axios.post(
-  //     `http://${ip}:3000/api/user/resetAccount`,
-  //     {
-  //       Weight: props[5],
-  //       Height: props[6],
-  //       Gender: props[7],
-  //       Goal: props[8],
-  //       ActivityLevel: props[9],
-  //       BodyFat: props[10],
-  //       TargetWeight: props[11],
-  //       weeklyGoal: props[12],
-  //     },
-  //   );
 
-  //   token = response.data.token;
-  //   userId = response.data.id;
-  //   await AsyncStorage.setItem('Token', response.data.token);
-  //   await AsyncStorage.setItem('id', response.data.id);
-  //   if (response.data.status === 'success') {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // } catch (error) {
-  //   alert('Please Check your Details');
-  // }
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/user/resetAccount`,
+      {
+        Weight: props[0],
+        Height: props[1],
+        Gender: props[2],
+        Goal: props[3],
+        ActivityLevel: props[4],
+        BodyFat: props[5],
+        TargetWeight: props[6],
+        weeklyGoal: props[7],
+        token,
+      },
+    );
+
+    console.log(response.status)
+    if (response.status === 200) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    alert('Something went wrong');
+  }
 };
 const searchRecommendations = async props => {
   try {

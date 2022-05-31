@@ -78,6 +78,7 @@ export const loginStyle = StyleSheet.create({
   forgotPasswordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    margin: 10,
   },
   checkbox: {
     fontSize: 15,

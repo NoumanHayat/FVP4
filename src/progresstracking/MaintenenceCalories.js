@@ -48,52 +48,57 @@ const weight = () => {
   const [detail, setDetail] = React.useState([]);
 
   const {progressTracking_getMaintenanceCalories} = useContext(DataContext);
-
+  const [active, setActive] = React.useState(false);
   //=============================================================================
   useEffect(() => {
     async function fetchData() {
       const d = await progressTracking_getMaintenanceCalories();
-      var a = {
-        weeklyLabel: d.weeklyLabel.reverse(),
-        weeklyData: d.weeklyData.reverse(),
-        MonthlyLabel: d.MonthlyLabel.reverse(),
-        MonthlyData: d.MonthlyData.reverse(),
-      };
-      setDetail(a);
-      setLabels(a.weeklyLabel);
-      setValues(a.weeklyData);
-      setListData([
-        {
-          Date: a.weeklyLabel[0],
-          MaintenenceCalories: a.weeklyData[0],
-        },
-        {
-          Date: a.weeklyLabel[1],
-          MaintenenceCalories: a.weeklyData[1],
-        },
-        {
-          Date: a.weeklyLabel[2],
-          MaintenenceCalories: a.weeklyData[2],
-        },
-        {
-          Date: a.weeklyLabel[3],
-          MaintenenceCalories: a.weeklyData[3],
-        },
-        {
-          Date: a.weeklyLabel[4],
-          MaintenenceCalories: a.weeklyData[4],
-        },
-        {
-          Date: a.weeklyLabel[5],
-          MaintenenceCalories: a.weeklyData[5],
-        },
-      ]);
+      if (d.MonthlyData.length !== 0) {
+        setActive(true);
+        var a = {
+          weeklyLabel: d.weeklyLabel.reverse(),
+          weeklyData: d.weeklyData.reverse(),
+          MonthlyLabel: d.MonthlyLabel.reverse(),
+          MonthlyData: d.MonthlyData.reverse(),
+        };
+        setDetail(a);
+        setLabels(a.weeklyLabel);
+        setValues(a.weeklyData);
+        setListData([
+          {
+            Date: a.weeklyLabel[0],
+            MaintenenceCalories: a.weeklyData[0],
+          },
+          {
+            Date: a.weeklyLabel[1],
+            MaintenenceCalories: a.weeklyData[1],
+          },
+          {
+            Date: a.weeklyLabel[2],
+            MaintenenceCalories: a.weeklyData[2],
+          },
+          {
+            Date: a.weeklyLabel[3],
+            MaintenenceCalories: a.weeklyData[3],
+          },
+          {
+            Date: a.weeklyLabel[4],
+            MaintenenceCalories: a.weeklyData[4],
+          },
+          {
+            Date: a.weeklyLabel[5],
+            MaintenenceCalories: a.weeklyData[5],
+          },
+        ]);
+      }else{
+
+      }
     }
     fetchData();
   }, []);
   return (
-    <View style={{flex: 1, alignItems: 'center', padding: 15}}>
-      <Text>Bezier Line Chart</Text>
+   <>
+   {active ? ( <View style={{flex: 1, alignItems: 'center', padding: 15}}>
       <LineChart
         data={{
           labels: labels,
@@ -239,7 +244,8 @@ const weight = () => {
           }}
         />
       </DataTable>
-    </View>
+    </View>):(<Text style={{color: 'black'}}>Please wait for some time</Text>)}
+   </>
   );
 };
 export default weight;

@@ -38,7 +38,7 @@ const index = props => {
             Your Current weight is :{props.route.params[0]}
           </Text>
         </View>
-        <Text>Please Select your target weight</Text>
+        <Text style={{color: 'black'}}>Please Select your target weight</Text>
         <Input
           placeholder="Enter Weight"
           onChangeText={e => {

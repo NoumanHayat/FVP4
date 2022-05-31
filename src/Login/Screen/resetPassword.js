@@ -117,7 +117,7 @@ const index = props => {
           <Text style={{fontSize: 25, fontWeight: 'bold', padding: 10}}>
             Reset your password!
           </Text>
-          <Text>Please provide token and new password</Text>
+          <Text style={{color: 'black'}}>Please provide token and new password</Text>
         </View>
         <TextInput
           style={{

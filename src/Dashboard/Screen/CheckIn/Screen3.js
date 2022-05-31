@@ -28,7 +28,7 @@ const index = props => {
       <View style={Styles.bottom}>
         <View style={Styles.bottomContainer}>
           <Text style={Styles.welcomeText}>Welcome</Text>
-          <Text>Please enter your Weight</Text>
+          <Text style={{color: 'black'}}>Please enter your Weight</Text>
         </View>
       </View>
 

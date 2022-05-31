@@ -4,14 +4,14 @@ import {StyleSheet, Text, View} from 'react-native';
 const Recommendations = () => {
   return (
     <View style={Styles.container}>
-      <Text>Recommendations Tab</Text>
+      <Text style={{color: 'black'}}>Recommendations Tab</Text>
     </View>
   );
 };
 
 const Styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, 
     backgroundColor: '#ffff',
   },
 });

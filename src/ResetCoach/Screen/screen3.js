@@ -165,7 +165,7 @@ const index = props => {
         <View style={Styles.bottom}>
           <View style={Styles.bottomContainer}>
             <Text style={Styles.welcomeText}>Select Activity Level</Text>
-            <Text>Please Select Goal</Text>
+            <Text style={{color: 'black'}}>Please Select Goal</Text>
           </View>
         </View>
 
@@ -177,8 +177,8 @@ const index = props => {
               onPressButton('Sedentary');
             }}>
             <Text style={Styles.selectGoleText}>Sedentary</Text>
-            <Text>Little or No exercise</Text>
-            <Text>Desk Job</Text>
+            <Text style={{color: 'black'}}>Little or No exercise</Text>
+            <Text style={{color: 'black'}}>Desk Job</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={selectedLightActivity}
@@ -187,8 +187,8 @@ const index = props => {
               onPressButton('LightActivity');
             }}>
             <Text style={Styles.selectGoleText}>Light Activity</Text>
-            <Text>Little activity thoroughout the day</Text>
-            <Text>sports/exercise 1-3 days/week</Text>
+            <Text style={{color: 'black'}}>Little activity thoroughout the day</Text>
+            <Text style={{color: 'black'}}>sports/exercise 1-3 days/week</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={selectedModerateActivity}
@@ -197,8 +197,8 @@ const index = props => {
               setSelectedItem('Moderate Activity');
             }}>
             <Text style={Styles.selectGoleText}>Moderate Activity</Text>
-            <Text>Some Walking and moving around</Text>
-            <Text>Sports/exercise 6-7 days/week</Text>
+            <Text style={{color: 'black'}}>Some Walking and moving around</Text>
+            <Text style={{color: 'black'}}>Sports/exercise 6-7 days/week</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -208,8 +208,8 @@ const index = props => {
               setSelectedItem('Highly Active');
             }}>
             <Text style={Styles.selectGoleText}>Highly Active</Text>
-            <Text>Some Walking and moving around</Text>
-            <Text>Sports/exercise 6-7 days/week</Text>
+            <Text style={{color: 'black'}}>Some Walking and moving around</Text>
+            <Text style={{color: 'black'}}>Sports/exercise 6-7 days/week</Text>
           </TouchableOpacity>
           <View style={Styles.Continue}>
             <LinearGradient

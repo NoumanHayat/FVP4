@@ -1,9 +1,11 @@
-import React, {useState, Component, useRef} from 'react';
+import React, {useState, Component, useRef,useContext} from 'react';
 import {heightWeight as Styles} from '../../Style/index';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Input, CheckBox} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import {RadioButton} from 'react-native-paper';
+import DataContext from '../../../DataContext/DataContext';
+
 import {
   View,
   Text,
@@ -15,6 +17,7 @@ import {
 
 const index = props => {
   const navigation = props.navigation;
+  const {weeklyCheckIn} = useContext(DataContext);
 
   
   const [weight, setWeight] = React.useState('');
@@ -48,13 +51,14 @@ const index = props => {
           colors={['#5362D5', '#5362D5', '#5362D5']}
           style={Styles.linearGradient}>
           <TouchableOpacity  
-            onPress={() => {
+            onPress={async() => {
               if(weight!==''){
-                navigation.push("Calories",weight);
+                await weeklyCheckIn(weight);
+                 navigation.push("Calories",weight);
+                // console.log(weight);
               }else{
-                alert('Please enter details')
+                alert('Please enter details') 
               }
-             
             }}>
             <Text style={Styles.buttonText}>Continue</Text>
           </TouchableOpacity>

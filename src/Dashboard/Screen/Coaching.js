@@ -18,12 +18,17 @@ import * as Progress from 'react-native-progress';
 const Coaching = props => {
   const [detail, setDetail] = useState({});
   const [user, setUser] = useState({});
+  const [CheckInStatus, setCheckInStatus] = useState([]);
   const navigation = props.navigation;
 
-  const {currentCalories, userDetails} = useContext(DataContext);
+  const {currentCalories, userDetails, weeklyCheckInStatus} =
+    useContext(DataContext);
   useEffect(() => {
     async function fetchData() {
       const a = await currentCalories();
+      const b = await weeklyCheckInStatus();
+      setCheckInStatus(b);
+      console.log(b);
       userDetails()
         .then(data => {
           setUser(data.data);
@@ -37,143 +42,182 @@ const Coaching = props => {
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.namePart}>
-          <Text style={{fontSize: 35, padding: 10,color: 'black', textAlign: 'center'}}>{user.Goal}</Text>
+          <Text
+            style={{
+              fontSize: 35,
+              padding: 10,
+              color: 'black',
+              textAlign: 'center',
+            }}>
+            {user.Goal}
+          </Text>
 
           <View style={styles.golesAndWeights}>
-            <Text style={{fontSize: 17, color: 'black', textAlign: 'center',paddingVertical:3}}>{user.weeklyGoal}KG/per week</Text>
-            <Text style={{fontSize: 17, color:'black',textAlign: 'center',paddingVertical:3}}>Current weight:{user.Weight}KG</Text>
+            <Text
+              style={{
+                fontSize: 17,
+                color: 'black',
+                textAlign: 'center',
+                paddingVertical: 3,
+              }}>
+              {user.weeklyGoal}KG/per week
+            </Text>
+            <Text
+              style={{
+                fontSize: 17,
+                color: 'black',
+                textAlign: 'center',
+                paddingVertical: 3,
+              }}>
+              Current weight:{user.Weight}KG
+            </Text>
           </View>
         </View>
-
+ 
         <View style={styles.containerSecond}>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Cals</Text>
-            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Calories)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
+              Cals
+            </Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
+              {parseInt(detail.Calories)}
+            </Text>
           </View>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Protein</Text>
-            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Protein)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
+              Protein
+            </Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
+              {parseInt(detail.Protein)}
+            </Text>
           </View>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Carbs</Text>
-            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Carbs)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
+              Carbs
+            </Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
+              {parseInt(detail.Carbs)}
+            </Text>
           </View>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Fats</Text>
-            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Fats)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
+              Fats
+            </Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
+              {parseInt(detail.Fats)}
+            </Text>
           </View>
         </View>
         <Divider />
         <View style={styles.containerThird}>
           <ScrollView horizontal={true}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'red',
-              // width: 200,
-              // height: 40,
-              borderRadius: 15,
-              position: 'relative',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 3,
-            }}
-            onPress={() => {
-              navigation.navigate('checkInHsitory');
-            }}>
-            <Text
+            <TouchableOpacity
               style={{
-                fontSize: 14,
-                fontFamily: 'Gill Sans',
-                textAlign: 'center',
-                margin: 10,
-                color: 'white',
-                backgroundColor: 'transparent',
+                backgroundColor: 'red',
+                // width: 200,
+                // height: 40,
+                borderRadius: 15,
+                position: 'relative',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginLeft: 3,
+              }}
+              onPress={() => {
+                navigation.navigate('checkInHsitory');
               }}>
-              CheckIn History
-            </Text>
-          </TouchableOpacity> 
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontFamily: 'Gill Sans',
+                  textAlign: 'center',
+                  margin: 10,
+                  color: 'white',
+                  backgroundColor: 'transparent',
+                }}>
+                CheckIn History
+              </Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'red',
-              // width: 200,
-              // height: 40,
-              borderRadius: 15,
-              position: 'relative',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 3,
-            }}
-            onPress={() => {
-              navigation.push('chatBot');
-            }}>
-            <Text
+            <TouchableOpacity
               style={{
-                fontSize: 14,
-                fontFamily: 'Gill Sans',
-                textAlign: 'center',
-                margin: 10,
-                color: 'white',
-                backgroundColor: 'transparent',
+                backgroundColor: 'red',
+                // width: 200,
+                // height: 40,
+                borderRadius: 15,
+                position: 'relative',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginLeft: 3,
+              }}
+              onPress={() => {
+                navigation.push('chatBot');
               }}>
-              Chat Bot
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontFamily: 'Gill Sans',
+                  textAlign: 'center',
+                  margin: 10,
+                  color: 'white',
+                  backgroundColor: 'transparent',
+                }}>
+                Chat Bot
+              </Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'red',
-              // width: 200,
-              // height: 40,
-              borderRadius: 15,
-              position: 'relative',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 3,
-            }}
-            onPress={() => {
-              navigation.push('DailyWeight');
-            }}>
-            <Text
+            <TouchableOpacity
               style={{
-                fontSize: 14,
-                fontFamily: 'Gill Sans',
-                textAlign: 'center',
-                margin: 10,
-                color: 'white',
-                backgroundColor: 'transparent',
+                backgroundColor: 'red',
+                // width: 200,
+                // height: 40,
+                borderRadius: 15,
+                position: 'relative',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginLeft: 3,
+              }}
+              onPress={() => {
+                navigation.push('DailyWeight');
               }}>
-              Add DailyWeight
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'red',
-              // width: 200,
-              // height: 40,
-              borderRadius: 15,
-              position: 'relative',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 3,
-            }}
-            onPress={() => {
-              navigation.push('FoodRecommendations');
-            }}>
-            <Text
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontFamily: 'Gill Sans',
+                  textAlign: 'center',
+                  margin: 10,
+                  color: 'white',
+                  backgroundColor: 'transparent',
+                }}>
+                Add DailyWeight
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
               style={{
-                fontSize: 14,
-                fontFamily: 'Gill Sans',
-                textAlign: 'center',
-                margin: 10,
-                color: 'white', 
-                backgroundColor: 'transparent',
+                backgroundColor: 'red',
+                // width: 200,
+                // height: 40,
+                borderRadius: 15,
+                position: 'relative',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginLeft: 3,
+              }}
+              onPress={() => {
+                navigation.push('FoodRecommendations');
               }}>
-              Food Recommendations
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontFamily: 'Gill Sans',
+                  textAlign: 'center',
+                  margin: 10,
+                  color: 'white',
+                  backgroundColor: 'transparent',
+                }}>
+                Food Recommendations
+              </Text>
+            </TouchableOpacity>
           </ScrollView>
-
         </View>
         {/* ================================================================================================== */}
         <View style={{marginLeft: '10%', marginRight: '10%'}}>
@@ -208,11 +252,11 @@ const Coaching = props => {
         <View style={styles.containerFourth}>
           <View style={styles.statusContainer}>
             <Text style={styles.statusText}>Total Check</Text>
-            <Text style={styles.statusText}>5</Text>
+            <Text style={styles.statusText}>{CheckInStatus.total}</Text>
           </View>
           <View style={styles.statusContainer}>
             <Text style={styles.statusText}>Next CheckIn Date</Text>
-            <Text style={styles.statusText}>5</Text>
+            <Text style={styles.statusText}>{CheckInStatus.nextCheckIns}</Text>
           </View>
         </View>
         <Divider />
@@ -225,32 +269,36 @@ const Coaching = props => {
           /> 
         </View> */}
         <View style={styles.checkInButton}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'blue',
-              // width: 200,
-              // height: 40,
-              borderRadius: 15,
-              position: 'relative',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginTop: 20,
-            }}
-            onPress={() => {
-              navigation.push('CheckIn1');
-            }}>
-            <Text
+          {CheckInStatus.avalible ? (
+            <TouchableOpacity
               style={{
-                fontSize: 18,
-                fontFamily: 'Gill Sans',
-                textAlign: 'center',
-                margin: 10,
-                color: '#ffffff',
-                backgroundColor: 'transparent',
+                backgroundColor: 'blue',
+                // width: 200,
+                // height: 40,
+                borderRadius: 15,
+                position: 'relative',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: 20,
+              }}
+              onPress={() => {
+                navigation.push('CheckIn1');
               }}>
-              Check in
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: 18,
+                  fontFamily: 'Gill Sans',
+                  textAlign: 'center',
+                  margin: 10,
+                  color: '#ffffff',
+                  backgroundColor: 'transparent',
+                }}>
+                Check in
+              </Text>
+            </TouchableOpacity>
+          ) : (
+            <Text></Text>
+          )}
         </View>
       </ScrollView>
     </View>

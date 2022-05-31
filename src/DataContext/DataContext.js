@@ -735,13 +735,28 @@ const searchRecommendations = async props => {
     alert(error.message);
   }
 };
+const weeklyCheckInStatus = async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/coachingRoute/weeklyCheckInStatus`,
+      {
+        token: token,
+      },
+    );
+
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
     <DataContext.Provider
       value={{
         searchRecommendations,
-        customMadeWorkout,
+        weeklyCheckInStatus,
+        customMadeWorkout, 
         resetAccount,
         checkPayment,
         exercisedb,

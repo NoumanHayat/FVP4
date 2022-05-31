@@ -11,6 +11,7 @@ import {DataTable} from 'react-native-paper';
 import DataContext from '../../../DataContext/DataContext';
 
 const index = props => {
+  console.log(props.route.params);
   const [detail,setDetail]= useState({});
   const navigation = props.navigation;
   const {currentCalories} = useContext(DataContext);
@@ -18,7 +19,7 @@ const index = props => {
     async function fetchData() {
       const a= await currentCalories();
        setDetail(a);
-    }
+    } 
     fetchData();
   }, []);
 

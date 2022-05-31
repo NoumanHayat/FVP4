@@ -49,6 +49,14 @@ import Recommendations from './src/WorkoutBuilder/Screens/Recommendations';
 import WorkoutDashboard from './src/WorkoutBuilder/Screens/WorkoutDashboard';
 import WorkoutDetail from './src/WorkoutBuilder/Screens/WorkoutDetail';
 import paymentDashboard from './src/Payment/paymentDashbord';
+import resetScreens1 from './src/ResetCoach/Screen/screen1';
+import resetScreens2 from './src/ResetCoach/Screen/screen2';
+import resetScreens3 from './src/ResetCoach/Screen/screen3';
+import resetScreens4 from './src/ResetCoach/Screen/screen4';
+import resetScreens5 from './src/ResetCoach/Screen/screen5';
+import resetScreens6 from './src/ResetCoach/Screen/screen6';
+import resetConfirm from './src/ResetCoach/Screen/Confirm';
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -115,6 +123,16 @@ const App = () => {
           <Stack.Screen name="TrainingType" component={TrainingType} />
           <Stack.Screen name="Logger" component={Logger} />
           <Stack.Screen name="Recommendations" component={Recommendations} />
+
+
+          {/* ============================ResetCoach=================================== */}
+          <Stack.Screen name="resetScreens1" component={resetScreens1} />
+          <Stack.Screen name="resetScreens2" component={resetScreens2} />
+          <Stack.Screen name="resetScreens3" component={resetScreens3} />
+          <Stack.Screen name="resetScreens4" component={resetScreens4} />
+          <Stack.Screen name="resetScreens5" component={resetScreens5} />
+          <Stack.Screen name="resetScreens6" component={resetScreens6} />
+          <Stack.Screen name="resetConfirm" component={resetConfirm} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

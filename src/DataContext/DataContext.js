@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ip = '172.31.224.1';
+const ip = '172.23.192.1';
 // var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjAzMzlhYjIxNmJiZjE4NmZmOTdjZCIsImlhdCI6MTY1MDQ4MzE5NiwiZXhwIjoxNjU4MjU5MTk2fQ.b3PibfH5oa86FFGq97SxHLZsqhwZpkuie1CW8KSi14c';
 var userId = '';
 var token = ' ';
@@ -656,7 +656,7 @@ const exercisedb = async props => {
   }
 };
 const customMadeWorkout = async props => {
-  const Exercise= props.map(({id, item, sets, reps, RPE}) => {
+  const Exercise = props.map(({id, item, sets, reps, RPE}) => {
     return {
       id,
       name: item,
@@ -684,12 +684,50 @@ const customMadeWorkout = async props => {
     alert(error.message);
   }
 };
+const resetAccount = async props => {
+  console.log(props[0]);
+  console.log(props[1]);
+  console.log(props[2]);
+  console.log(props[3]);
+  console.log(props[4]);
+  console.log(props[5]);
+  console.log(props[6]);
+  console.log(props[7]);
+  // try {
+  //   const response = await axios.post(
+  //     `http://${ip}:3000/api/user/resetAccount`,
+  //     {
+  //       Weight: props[5],
+  //       Height: props[6],
+  //       Gender: props[7],
+  //       Goal: props[8],
+  //       ActivityLevel: props[9],
+  //       BodyFat: props[10],
+  //       TargetWeight: props[11],
+  //       weeklyGoal: props[12],
+  //     },
+  //   );
+
+  //   token = response.data.token;
+  //   userId = response.data.id;
+  //   await AsyncStorage.setItem('Token', response.data.token);
+  //   await AsyncStorage.setItem('id', response.data.id);
+  //   if (response.data.status === 'success') {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // } catch (error) {
+  //   alert('Please Check your Details');
+  // }
+};
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
     <DataContext.Provider
       value={{
         customMadeWorkout,
+        resetAccount,
         checkPayment,
         exercisedb,
         progressTracking_getCalories,

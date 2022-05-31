@@ -56,6 +56,7 @@ import resetScreens4 from './src/ResetCoach/Screen/screen4';
 import resetScreens5 from './src/ResetCoach/Screen/screen5';
 import resetScreens6 from './src/ResetCoach/Screen/screen6';
 import resetConfirm from './src/ResetCoach/Screen/Confirm';
+import FoodRecommendations from './src/Dashboard/Screen/FoodRecommendations'
 
 const Stack = createNativeStackNavigator();
 
@@ -133,6 +134,8 @@ const App = () => {
           <Stack.Screen name="resetScreens5" component={resetScreens5} />
           <Stack.Screen name="resetScreens6" component={resetScreens6} />
           <Stack.Screen name="resetConfirm" component={resetConfirm} />
+          <Stack.Screen name="FoodRecommendations" component={FoodRecommendations} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

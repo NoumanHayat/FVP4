@@ -721,11 +721,26 @@ const resetAccount = async props => {
   //   alert('Please Check your Details');
   // }
 };
+const searchRecommendations = async props => {
+  try {
+    const response = await axios.post(
+      `http://${ip}:3000/api/workoutbuilderRoutes/recomendations`,
+      {
+        query: props,
+      },
+    );
+
+    return response.data;
+  } catch (error) {
+    alert(error.message);
+  }
+};
 const DataContext = React.createContext();
 export const DataProvider = ({children}) => {
   return (
     <DataContext.Provider
       value={{
+        searchRecommendations,
         customMadeWorkout,
         resetAccount,
         checkPayment,

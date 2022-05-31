@@ -37,34 +37,35 @@ const Coaching = props => {
     <View style={styles.container}>
       <ScrollView>
         <View style={styles.namePart}>
-          <Text style={{fontSize: 35, padding: 10}}>{user.Goal}</Text>
+          <Text style={{fontSize: 35, padding: 10,color: 'black', textAlign: 'center'}}>{user.Goal}</Text>
 
           <View style={styles.golesAndWeights}>
-            <Text style={{fontSize: 17}}>{user.weeklyGoal}KG/per week</Text>
-            <Text style={{fontSize: 17}}>Current weight:{user.Weight}KG</Text>
+            <Text style={{fontSize: 17, color: 'black', textAlign: 'center',paddingVertical:3}}>{user.weeklyGoal}KG/per week</Text>
+            <Text style={{fontSize: 17, color:'black',textAlign: 'center',paddingVertical:3}}>Current weight:{user.Weight}KG</Text>
           </View>
         </View>
 
         <View style={styles.containerSecond}>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23}}>Cals</Text>
-            <Text style={{fontSize: 19}}>{parseInt(detail.Calories)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Cals</Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Calories)}</Text>
           </View>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23}}>Protein</Text>
-            <Text style={{fontSize: 19}}>{parseInt(detail.Protein)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Protein</Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Protein)}</Text>
           </View>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23}}>Carbs</Text>
-            <Text style={{fontSize: 19}}>{parseInt(detail.Carbs)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Carbs</Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Carbs)}</Text>
           </View>
           <View style={styles.boxContainer}>
-            <Text style={{fontSize: 23}}>Fats</Text>
-            <Text style={{fontSize: 19}}>{parseInt(detail.Fats)}</Text>
+            <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>Fats</Text>
+            <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>{parseInt(detail.Fats)}</Text>
           </View>
         </View>
         <Divider />
         <View style={styles.containerThird}>
+          <ScrollView horizontal={true}>
           <TouchableOpacity
             style={{
               backgroundColor: 'red',
@@ -90,7 +91,7 @@ const Coaching = props => {
               }}>
               CheckIn History
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> 
 
           <TouchableOpacity
             style={{
@@ -145,6 +146,34 @@ const Coaching = props => {
               Add DailyWeight
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'red',
+              // width: 200,
+              // height: 40,
+              borderRadius: 15,
+              position: 'relative',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginLeft: 3,
+            }}
+            onPress={() => {
+              navigation.push('FoodRecommendations');
+            }}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontFamily: 'Gill Sans',
+                textAlign: 'center',
+                margin: 10,
+                color: 'white', 
+                backgroundColor: 'transparent',
+              }}>
+              Food Recommendations
+            </Text>
+          </TouchableOpacity>
+          </ScrollView>
+
         </View>
         {/* ================================================================================================== */}
         <View style={{marginLeft: '10%', marginRight: '10%'}}>
@@ -171,7 +200,7 @@ const Coaching = props => {
                 color: '#ffffff',
                 backgroundColor: 'transparent',
               }}>
-              Coaching
+              Workout Builder
             </Text>
           </TouchableOpacity>
         </View>
@@ -192,7 +221,7 @@ const Coaching = props => {
           <ProgressView
             progressTintColor="orange"
             trackTintColor="blue"
-            progress={0.7}
+            progress={0.7} 
           /> 
         </View> */}
         <View style={styles.checkInButton}>

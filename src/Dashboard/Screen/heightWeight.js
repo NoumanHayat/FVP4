@@ -54,7 +54,7 @@ const index = props => {
               <RadioButton value="Male" />
             </View>
             <View style={{marginLeft: 25, marginRight: 25}}>
-              <Text>Female</Text>
+              <Text style={{color:'black'}}>Female</Text>
               <RadioButton value="Female" />
             </View> 
           </View>

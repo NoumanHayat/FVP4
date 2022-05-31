@@ -36,7 +36,7 @@ const chatBot = props => {
     },
   ]);
   useEffect(() => {
-    socket.current = io('ws://172.25.144.1:4000', {jsonp: false});
+    socket.current = io('ws://172.19.32.1:4000', {jsonp: false});
 
     socket.current.on('chatMessage', msg => {
       sendBotResponse(msg);

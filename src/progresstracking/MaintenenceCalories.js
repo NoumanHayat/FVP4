@@ -1,13 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {View, Text, Dimensions, FlatList} from 'react-native';
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit';
+import {LineChart} from 'react-native-chart-kit';
 import {DataTable} from 'react-native-paper';
 import {ButtonGroup, Card} from 'react-native-elements';
 import DataContext from '../DataContext/DataContext';
@@ -60,13 +53,12 @@ const weight = () => {
   useEffect(() => {
     async function fetchData() {
       const d = await progressTracking_getMaintenanceCalories();
-      var a={
-        
-        weeklyLabel:d.weeklyLabel.reverse(),
-        weeklyData:d.weeklyData.reverse(),
-        MonthlyLabel:d.MonthlyLabel.reverse(),
-        MonthlyData:d.MonthlyData.reverse(),
-      }
+      var a = {
+        weeklyLabel: d.weeklyLabel.reverse(),
+        weeklyData: d.weeklyData.reverse(),
+        MonthlyLabel: d.MonthlyLabel.reverse(),
+        MonthlyData: d.MonthlyData.reverse(),
+      };
       setDetail(a);
       setLabels(a.weeklyLabel);
       setValues(a.weeklyData);

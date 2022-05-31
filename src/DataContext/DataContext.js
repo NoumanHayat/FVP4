@@ -499,7 +499,7 @@ const progressTracking_getMaintenanceCalories = async () => {
         token,
       },
     );
-
+    console.log(response.data);
     return response.data;
   } catch (error) {
     alert(error.message);

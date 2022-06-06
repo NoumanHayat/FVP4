@@ -65,7 +65,7 @@ const index = props => {
           />
         </View>
         <View style={{alignItems: 'center'}}>
-          <Text style={{fontSize: 20}}>{value / 2}/KG per week</Text>
+          <Text style={{fontSize: 20,color: 'black'}}>{value / 2}/KG per week</Text>
         </View>
       </View>
 

@@ -48,7 +48,7 @@ const profile = props => {
             onPress={() => {
               navigation.push('weight');
             }}>
-            <Text style={{fontSize: 15}}>Weight</Text>
+            <Text style={{fontSize: 15,color:'black'}}>Weight</Text>
             <View style={styles.arrow}>
               <Icon
                 name="arrow-forward"
@@ -64,7 +64,7 @@ const profile = props => {
             onPress={() => {
               navigation.push('BodyFatPercentage');
             }}>
-            <Text style={{fontSize: 15}}>Body Fat Percentage</Text>
+            <Text style={{fontSize: 15,color:'black'}}>Body Fat Percentage</Text>
             <View style={styles.arrow}>
               <Icon
                 name="arrow-forward"
@@ -81,7 +81,7 @@ const profile = props => {
             onPress={() => {
               navigation.push('MaintenenceCalories');
             }}>
-            <Text style={{fontSize: 15}}>Maintenence Calories</Text>
+            <Text style={{fontSize: 15,color:'black'}}>Maintenence Calories</Text>
             <View style={styles.arrow}> 
               <Icon
                 name="arrow-forward"
@@ -102,7 +102,7 @@ const profile = props => {
               navigation.push('progresstrackingCalories');
             }}>
             {/* progresstrackingCalories */}
-            <Text style={{fontSize: 15}}>Calories</Text>
+            <Text style={{fontSize: 15,color:'black'}}>Calories</Text>
             <View style={styles.arrow}>
               <Icon
                 name="arrow-forward"
@@ -118,7 +118,7 @@ const profile = props => {
             onPress={() => {
               navigation.push('Protein');
             }}>
-            <Text style={{fontSize: 15}}>Protein</Text>
+            <Text style={{fontSize: 15,color:'black'}}>Protein</Text>
             <View style={styles.arrow}>
               <Icon
                 name="arrow-forward"
@@ -134,7 +134,7 @@ const profile = props => {
             onPress={() => {
               navigation.push('Carbs');
             }}>
-            <Text style={{fontSize: 15}}>Carbs</Text>
+            <Text style={{fontSize: 15,color:'black'}}>Carbs</Text>
             <View style={styles.arrow}>
               <Icon
                 name="arrow-forward"
@@ -150,7 +150,7 @@ const profile = props => {
             onPress={() => {
               navigation.push('Fats');
             }}>
-            <Text style={{fontSize: 15}}>Fats</Text>
+            <Text style={{fontSize: 15,color:'black'}}>Fats</Text>
             <View style={styles.arrow}>
               <Icon
                 name="arrow-forward"

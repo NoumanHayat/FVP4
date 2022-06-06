@@ -70,11 +70,11 @@ const index = props => {
             value={value}
             style={Styles.RadioButton}>
             <View style={{flexDirection: 'row'}}>
-              <Text style={{paddingRight: 60, paddingTop: 5}}>Yes</Text>
+              <Text style={{paddingRight: 60, paddingTop: 5,color:'black'}}>Yes</Text>
               <RadioButton value="Yes" />
             </View>
             <View style={{flexDirection: 'row'}}>
-              <Text style={{paddingRight: 63, paddingTop: 5}}>No</Text>
+              <Text style={{paddingRight: 63, paddingTop: 5,color:'black'}}>No</Text>
               <RadioButton value="No" />
             </View>
           </RadioButton.Group>

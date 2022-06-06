@@ -29,7 +29,7 @@ const index = props => {
 
       <View style={Styles.bottom}>
         <Text style={Styles.welcomeText}>Welcome</Text>
-        <Text style={{paddingLeft: 30}}>Please enter your Details</Text>
+        <Text style={{paddingLeft: 30,color: 'black'}}>Please enter your Details</Text>
       </View>
 
       <View style={Styles.loginContainer}>

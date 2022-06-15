@@ -78,8 +78,139 @@ const Coaching = props => {
                 Current weight:{user.Weight}KG
               </Text>
             </View>
-            
           </View>
+        </View>
+      </LinearGradient>
+      <View style={styles.bottom}>
+        <View style={styles.bottomContainer}>
+          {/* ====================================================================================== */}
+          <View style={{flex: 1, alignItems: 'center'}}>
+            <View style={{flexDirection: 'row', marginTop: 20}}>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  backgroundColor: '#E7EEF7',
+                  borderRadius: 16,
+                  padding: 10,
+                  shadowColor: '#000000',
+                  shadowOffset: {
+                    width: 0,
+                    height: 7,
+                  },
+                  shadowOpacity: 0.07,
+                  shadowRadius: 4,
+                  elevation: 2,
+                }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('chatBot');
+                  }}>
+                  <Image
+                    resizeMode="cover"
+                    source={require('../../assets/chat.png')}
+                    style={{width: 114, height: 114}}
+                  />
+                  <View style={{padding: 10, justify: 'space-between'}}>
+                    <Text style={{textAlign: 'center'}}>Chat Bot</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  backgroundColor: '#E7EEF7',
+                  borderRadius: 16,
+                  marginLeft: 10,
+
+                  padding: 10,
+                  shadowColor: '#000000',
+                  shadowOffset: {
+                    width: 0,
+                    height: 7,
+                  },
+                  shadowOpacity: 0.07,
+                  shadowRadius: 4,
+                  elevation: 2,
+                }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('WorkoutDashboard');
+                  }}>
+                  <Image
+                    resizeMode="cover"
+                    source={require('../../assets/workout.png')}
+                    style={{width: 114, height: 114}}
+                  />
+                  <View style={{padding: 10, justify: 'space-between'}}>
+                    <Text style={{textAlign: 'center'}}>Workout Builder</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={{flexDirection: 'row', marginTop: 20}}>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  backgroundColor: '#E7EEF7',
+                  borderRadius: 16,
+                  padding: 10,
+                  shadowColor: '#000000',
+                  shadowOffset: {
+                    width: 0,
+                    height: 7,
+                  },
+                  shadowOpacity: 0.07,
+                  shadowRadius: 4,
+                  elevation: 2,
+                }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('FoodRecommendations');
+                  }}>
+                  <Image
+                    resizeMode="cover"
+                    source={require('../../assets/food_rec.png')}
+                    style={{width: 114, height: 114}}
+                  />
+                  <View style={{padding: 10, justify: 'space-between'}}>
+                    <Text style={{textAlign: 'center'}}> Food Rec</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  backgroundColor: '#E7EEF7',
+                  borderRadius: 16,
+                  marginLeft: 10,
+
+                  padding: 10,
+                  shadowColor: '#000000',
+                  shadowOffset: {
+                    width: 0,
+                    height: 7,
+                  },
+                  shadowOpacity: 0.07,
+                  shadowRadius: 4,
+                  elevation: 2,
+                }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('checkInHsitory');
+                  }}>
+                  <Image
+                    resizeMode="cover"
+                    source={require('../../assets/checkin_history.png')}
+                    style={{width: 114, height: 114}}
+                  />
+                  <View style={{padding: 10, justify: 'space-between'}}>
+                    <Text style={{textAlign: 'center'}}>CheckIn History</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+
           <View style={styles.containerFourth}>
             <View style={styles.statusContainer}>
               <Text style={styles.statusText}>Total Check</Text>
@@ -92,116 +223,6 @@ const Coaching = props => {
               </Text>
             </View>
           </View>
-        </View>
-      </LinearGradient>
-      <View style={styles.bottom}>
-        <View style={styles.bottomContainer}>
-          {/* ====================================================================================== */}
-         
-          
-          <View style={{flexDirection: 'row', marginTop: 20}}>
-            <View
-              style={{
-                justifyContent: 'center',
-                backgroundColor: '#E7EEF7',
-                borderRadius: 16,
-                padding: 10,
-                shadowColor: '#000000',
-                shadowOffset: {
-                  width: 0,
-                  height: 7,
-                },
-                shadowOpacity: 0.07,
-                shadowRadius: 4,
-                elevation: 2,
-              }}>
-              <Image
-                resizeMode="cover"
-                source={require('../../assets/item1.png')}
-                style={{width: 114, height: 114}}
-              />
-              <View style={{padding: 10, justify: 'space-between'}}>
-                <Text>Modern Helmet HO3</Text>
-              </View>
-            </View>
-            <View
-              style={{
-                justifyContent: 'center',
-                backgroundColor: '#E7EEF7',
-                borderRadius: 16,
-                padding: 10,
-                marginLeft: 10,
-                shadowColor: '#000000',
-                shadowOffset: {
-                  width: 0,
-                  height: 7,
-                },
-                shadowOpacity: 0.07,
-                shadowRadius: 4,
-                elevation: 2,
-              }}>
-              <Image
-                resizeMode="cover"
-                source={require('../../assets/item1.png')}
-                style={{width: 114, height: 114}}
-              />
-              <View style={{padding: 10, justify: 'space-between'}}>
-                <Text>Modern Helmet HO3</Text>
-              </View>
-            </View>
-          </View>
-          <View style={{flexDirection: 'row', marginTop: 20}}>
-            <View
-              style={{
-                justifyContent: 'center',
-                backgroundColor: '#E7EEF7',
-                borderRadius: 16,
-                padding: 10,
-                shadowColor: '#000000',
-                shadowOffset: {
-                  width: 0,
-                  height: 7,
-                },
-                shadowOpacity: 0.07,
-                shadowRadius: 4,
-                elevation: 2,
-              }}>
-              <Image
-                resizeMode="cover"
-                source={require('../../assets/item1.png')}
-                style={{width: 114, height: 114}}
-              />
-              <View style={{padding: 10, justify: 'space-between'}}>
-                <Text>Modern Helmet HO3</Text>
-              </View>
-            </View>
-            <View
-              style={{
-                justifyContent: 'center',
-                backgroundColor: '#E7EEF7',
-                borderRadius: 16,
-                padding: 10,
-                marginLeft: 10,
-                shadowColor: '#000000',
-                shadowOffset: {
-                  width: 0,
-                  height: 7,
-                },
-                shadowOpacity: 0.07,
-                shadowRadius: 4,
-                elevation: 2,
-              }}>
-              <Image
-                resizeMode="cover"
-                source={require('../../assets/item1.png')}
-                style={{width: 114, height: 114}}
-              />
-              <View style={{padding: 10, justify: 'space-between'}}>
-                <Text>Modern Helmet HO3</Text>
-              </View>
-            </View>
-          </View>
-
           <View style={styles.checkInButton}>
             {CheckInStatus.avalible ? (
               <TouchableOpacity

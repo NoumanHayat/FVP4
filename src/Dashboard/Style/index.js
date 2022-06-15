@@ -9,7 +9,6 @@ export const homeStyle = StyleSheet.create({
   dynamic: {
     marginBottom: 40,
     alignItems: 'center',
-
   },
   DateButton: {
     justifyContent: 'center',
@@ -22,8 +21,7 @@ export const homeStyle = StyleSheet.create({
     width: Dimensions.get('window').width / 1.1,
   },
   cardStyle: {
-   
-    width: Dimensions.get('window').width/1.1,
+    width: Dimensions.get('window').width / 1.1,
   },
   updateAdd: {
     flex: 1,
@@ -527,69 +525,86 @@ export const Me = StyleSheet.create({
     width: '100%',
   },
 });
-export const Coaching = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  namePart: {
-    marginTop: '5%',
-    // alignItems: 'center',
-  },
-  golesAndWeights: {
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  containerSecond: {
-    margin: 30,
-    flex: 1,
-    flexDirection: 'row',
-  },
-  boxContainer: {
-    flex: 0.25,
-  },
-  containerThird: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  containerFourth: {
-    flex: 1,
-    marginTop: '13%',
-    flexDirection: 'row',
-  },
-  statusContainer: {
-    flex: 0.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  statusText: {
-    fontSize: 22,
-    color: 'black',
-  },
-  progressBar: {
-    margin: 10,
-    padding: 10,
-    paddingBottom:0,
-    marginBottom:0,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkInButton: {
-    padding: 10,
-    margin: 10,
-    marginTop:3,
-    paddingTop:3,
-    // marginTop: 50,
-  },
-  touchableOpacity: {
-    borderColor: '#CEE1D0',
+// export const Coaching = StyleSheet.create({
+//   bottom: {
+//     borderTopStartRadius: 45,
+//     borderTopEndRadius: 45,
+//     bottom: 35,
+//   },
+//   bottomContainer: {
+//     padding: 45,
+//     paddingBottom: 10,
+//   },
+//   background: {
+//     flex: 1,
+//     backgroundColor: 'yellow',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     height: Dimensions.get('window').height / 2.5,
+//   },
 
-    borderWidth: 1,
-    margin: 10,
-    borderRadius: 15,
-  },
-});
+//   container: {
+//     flex: 1,
+//   },
+//   namePart: {
+//     marginTop: '5%',
+//     // alignItems: 'center',
+//   },
+//   golesAndWeights: {
+//     alignItems: 'flex-start',
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//   },
+//   containerSecond: {
+//     margin: 30,
+//     flex: 1,
+//     flexDirection: 'row',
+//   },
+//   boxContainer: {
+//     flex: 0.25,
+//   },
+//   containerThird: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   containerFourth: {
+//     flex: 1,
+//     marginTop: '13%',
+//     flexDirection: 'row',
+//   },
+//   statusContainer: {
+//     flex: 0.5,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   statusText: {
+//     fontSize: 22,
+//     color: 'black',
+//   },
+//   progressBar: {
+//     margin: 10,
+//     padding: 10,
+//     paddingBottom: 0,
+//     marginBottom: 0,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   checkInButton: {
+//     padding: 10,
+//     margin: 10,
+//     marginTop: 3,
+//     paddingTop: 3,
+//     // marginTop: 50,
+//   },
+//   touchableOpacity: {
+//     borderColor: '#CEE1D0',
+
+//     borderWidth: 1,
+//     margin: 10,
+//     borderRadius: 15,
+//   },
+// });
 export const CustomCalories = StyleSheet.create({
   ButtonRow: {
     flexDirection: 'row',
@@ -771,19 +786,101 @@ export const checkInHsitory = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  CardView:{
-    marginTop:10,
+  CardView: {
+    marginTop: 10,
     flexDirection: 'row',
-    flex:1
+    flex: 1,
   },
-  FlatListViewContainer:{
+  FlatListViewContainer: {
     padding: 20,
-    marginTop:10
+    marginTop: 10,
   },
-  IconArea:{
+  IconArea: {},
+  TextArea: {
+    flex: 1,
+  },
+});
+export const Coaching = StyleSheet.create({
+  background: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: Dimensions.get('window').height / 2.5,
+  },
 
+  bottom: {
+    backgroundColor: 'white',
+
+    borderTopStartRadius: 45,
+    borderTopEndRadius: 45,
+    bottom: 35,
   },
-  TextArea:{
-    flex:1
-  }
+  bottomContainer: {
+    
+    padding: 45,
+    paddingBottom: 10,
+    
+  },
+  
+  container: {
+    flex: 1,
+  },
+  namePart: {
+    marginTop: '5%',
+    // alignItems: 'center',
+  },
+  golesAndWeights: {
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  containerSecond: {
+    margin: 30,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  boxContainer: {
+    flex: 0.25,
+  },
+  containerThird: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  containerFourth: {
+    flex: 1,
+    marginTop: '13%',
+    flexDirection: 'row',
+  },
+  statusContainer: {
+    flex: 0.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  statusText: {
+    fontSize: 22,
+    color: 'black',
+  },
+  progressBar: {
+    margin: 10,
+    padding: 10,
+    paddingBottom: 0,
+    marginBottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checkInButton: {
+    padding: 10,
+    margin: 10,
+    marginTop: 3,
+    paddingTop: 3,
+    // marginTop: 50,
+  },
+  touchableOpacity: {
+    borderColor: '#CEE1D0',
+
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: 15,
+  },
 });

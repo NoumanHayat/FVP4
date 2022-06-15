@@ -40,22 +40,21 @@ const Coaching = props => {
     fetchData();
   }, []);
   return (
-    <View style={styles.container}>
+    <ScrollView style={{flex: 1, backgroundColor: '#ffff'}}>
       <LinearGradient
         start={{x: 0.0, y: 0.25}}
         end={{x: 0.5, y: 1.0}}
         locations={[0.2, 0.6]}
-        colors={['#0E98F4', '#2DA4F4']}
-        // colors={['#3C8CE7', '#00EAFF']}
+        colors={['#1E81D4', '#11558D']}
         style={{flex: 1}}>
-        <ScrollView>
+        <View style={styles.background}>
           <View style={styles.namePart}>
             <Text
               style={{
                 fontSize: 35,
-                padding: 10,
-                color: 'black',
-                textAlign: 'center',
+                padding: 10, 
+                color: '#ffff',
+                
               }}>
               {user.Goal}
             </Text>
@@ -64,7 +63,7 @@ const Coaching = props => {
               <Text
                 style={{
                   fontSize: 17,
-                  color: 'black',
+                  color: '#ffff',
                   textAlign: 'center',
                   paddingVertical: 3,
                 }}>
@@ -73,7 +72,7 @@ const Coaching = props => {
               <Text
                 style={{
                   fontSize: 17,
-                  color: 'black',
+                  color: '#ffff',
                   textAlign: 'center',
                   paddingVertical: 3,
                 }}>
@@ -81,238 +80,16 @@ const Coaching = props => {
               </Text>
             </View>
           </View>
-
-          <View style={styles.containerSecond}>
-            <View style={styles.boxContainer}>
-              <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
-                Cals
-              </Text>
-              <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
-                {parseInt(detail.Calories)}
-              </Text>
-            </View>
-            <View style={styles.boxContainer}>
-              <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
-                Protein
-              </Text>
-              <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
-                {parseInt(detail.Protein)}
-              </Text>
-            </View>
-            <View style={styles.boxContainer}>
-              <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
-                Carbs
-              </Text>
-              <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
-                {parseInt(detail.Carbs)}
-              </Text>
-            </View>
-            <View style={styles.boxContainer}>
-              <Text style={{fontSize: 23, color: 'black', textAlign: 'center'}}>
-                Fats
-              </Text>
-              <Text style={{fontSize: 19, color: 'black', textAlign: 'center'}}>
-                {parseInt(detail.Fats)}
-              </Text>
-            </View>
-          </View>
-          <Divider />
-          <View style={styles.containerThird}>
-            <ScrollView horizontal={true}>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: 'red',
-                  // width: 200,
-                  // height: 40,
-                  borderRadius: 15,
-                  position: 'relative',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginLeft: 3,
-                }}
-                onPress={() => {
-                  navigation.navigate('checkInHsitory');
-                }}>
-                <Text
-                  style={{
-                    fontSize: 14,
-                    fontFamily: 'Gill Sans',
-                    textAlign: 'center',
-                    margin: 10,
-                    color: 'white',
-                    backgroundColor: 'transparent',
-                  }}>
-                  CheckIn History
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  backgroundColor: 'red',
-                  // width: 200,
-                  // height: 40,
-                  borderRadius: 15,
-                  position: 'relative',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginLeft: 3,
-                }}
-                onPress={() => {
-                  navigation.push('chatBot');
-                }}>
-                <Text
-                  style={{
-                    fontSize: 14,
-                    fontFamily: 'Gill Sans',
-                    textAlign: 'center',
-                    margin: 10,
-                    color: 'white',
-                    backgroundColor: 'transparent',
-                  }}>
-                  Chat Bot
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  backgroundColor: 'red',
-                  // width: 200,
-                  // height: 40,
-                  borderRadius: 15,
-                  position: 'relative',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginLeft: 3,
-                }}
-                onPress={() => {
-                  navigation.push('DailyWeight');
-                }}>
-                <Text
-                  style={{
-                    fontSize: 14,
-                    fontFamily: 'Gill Sans',
-                    textAlign: 'center',
-                    margin: 10,
-                    color: 'white',
-                    backgroundColor: 'transparent',
-                  }}>
-                  Add DailyWeight
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: 'red',
-                  // width: 200,
-                  // height: 40,
-                  borderRadius: 15,
-                  position: 'relative',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginLeft: 3,
-                }}
-                onPress={() => {
-                  navigation.push('FoodRecommendations');
-                }}>
-                <Text
-                  style={{
-                    fontSize: 14,
-                    fontFamily: 'Gill Sans',
-                    textAlign: 'center',
-                    margin: 10,
-                    color: 'white',
-                    backgroundColor: 'transparent',
-                  }}>
-                  Food Recommendations
-                </Text>
-              </TouchableOpacity>
-            </ScrollView>
-          </View>
-          {/* ================================================================================================== */}
-          <View style={{marginLeft: '10%', marginRight: '10%'}}>
-            <TouchableOpacity
-              style={{
-                backgroundColor: 'blue',
-                // width: 200,
-                // height: 40,
-                borderRadius: 15,
-                position: 'relative',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: 20,
-              }}
-              onPress={() => {
-                navigation.push('WorkoutDashboard');
-              }}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontFamily: 'Gill Sans',
-                  textAlign: 'center',
-                  margin: 10,
-                  color: '#ffffff',
-                  backgroundColor: 'transparent',
-                }}>
-                Workout Builder
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <Divider />
-          <View style={styles.containerFourth}>
-            <View style={styles.statusContainer}>
-              <Text style={styles.statusText}>Total Check</Text>
-              <Text style={styles.statusText}>{CheckInStatus.total}</Text>
-            </View>
-            <View style={styles.statusContainer}>
-              <Text style={styles.statusText}>Next CheckIn in</Text>
-              <Text style={styles.statusText}>
-                {CheckInStatus.nextCheckIns} days
-              </Text>
-            </View>
-          </View>
-          <Divider />
-          {/* <View style={styles.progressBar}>
-          <Progress.Bar color="orange" progress={0.7} width={300} height={15} />
-          <ProgressView
-            progressTintColor="orange"
-            trackTintColor="blue"
-            progress={0.7} 
-          /> 
-        </View> */}
-          <View style={styles.checkInButton}>
-            {CheckInStatus.avalible ? (
-              <TouchableOpacity
-                style={{
-                  backgroundColor: 'blue',
-                  // width: 200,
-                  // height: 40,
-                  borderRadius: 15,
-                  position: 'relative',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginTop: 20,
-                }}
-                onPress={() => {
-                  navigation.push('CheckIn1');
-                }}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    fontFamily: 'Gill Sans',
-                    textAlign: 'center',
-                    margin: 10,
-                    color: '#ffffff',
-                    backgroundColor: 'transparent',
-                  }}>
-                  Check in
-                </Text>
-              </TouchableOpacity>
-            ) : (
-              <Text></Text>
-            )}
-          </View>
-        </ScrollView>
+        </View>
       </LinearGradient>
-    </View>
+      <View style={styles.bottom}>
+        <View style={styles.bottomContainer}>
+
+
+          
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 export default Coaching;

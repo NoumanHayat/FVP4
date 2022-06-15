@@ -92,7 +92,7 @@ const HomeScreen = props => {
         start={{x: 0.0, y: 0.25}}
         end={{x: 0.5, y: 1.0}} 
         locations={[0.2, 0.6]}
-        colors={['#0E3155', '#020D19']}
+        colors={['#D4661E', '#D44A1E']}
         // colors={['#3C8CE7', '#00EAFF']}
         style={{flex: 1}}> */}
       <View style={styles.DateButton}>

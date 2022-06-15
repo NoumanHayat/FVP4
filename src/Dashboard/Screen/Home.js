@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/Entypo';
 import {ProgressChart} from 'react-native-chart-kit';
 import {ButtonGroup, Card} from 'react-native-elements';
 import DataContext from '../../DataContext/DataContext';
+import LinearGradient from 'react-native-linear-gradient';
+
 
 const HomeScreen = props => {
   const navigation = props.navigation;
@@ -86,6 +88,13 @@ const HomeScreen = props => {
 
   return (
     <View style={styles.container}>
+      {/* <LinearGradient
+        start={{x: 0.0, y: 0.25}}
+        end={{x: 0.5, y: 1.0}} 
+        locations={[0.2, 0.6]}
+        colors={['#0E3155', '#020D19']}
+        // colors={['#3C8CE7', '#00EAFF']}
+        style={{flex: 1}}> */}
       <View style={styles.DateButton}>
         <TouchableOpacity
           onPress={() => {
@@ -118,7 +127,7 @@ const HomeScreen = props => {
       </View>
       {displayDate.current === 0 ? (
         <View style={styles.dynamic}>
-          <View>
+          
             <ProgressChart
               data={check ? data2 : data}
               width={Dimensions.get('window').width}
@@ -134,6 +143,7 @@ const HomeScreen = props => {
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 style: {
                   borderRadius: 16,
+                  
                 },
                 propsForDots: {
                   r: '6',
@@ -148,7 +158,7 @@ const HomeScreen = props => {
               }}
               hideLegend={false}
             />
-          </View>
+          
           <View style={styles.buttonGroupStyle}>
             <ButtonGroup
               // buttonStyle={{width: 100}}
@@ -343,6 +353,7 @@ const HomeScreen = props => {
 
         //=================================================================================================
       )}
+      {/* </LinearGradient> */}
     </View>
   );
 };

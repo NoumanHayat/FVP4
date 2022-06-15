@@ -8,6 +8,8 @@ export const homeStyle = StyleSheet.create({
   },
   dynamic: {
     marginBottom: 40,
+    alignItems: 'center',
+
   },
   DateButton: {
     justifyContent: 'center',
@@ -20,10 +22,12 @@ export const homeStyle = StyleSheet.create({
     width: Dimensions.get('window').width / 1.1,
   },
   cardStyle: {
-    width: Dimensions.get('window').width,
+   
+    width: Dimensions.get('window').width/1.1,
   },
   updateAdd: {
-    flex: 0.99,
+    flex: 1,
+    justifyContent: 'center',
   },
   plus: {
     paddingLeft: 10,

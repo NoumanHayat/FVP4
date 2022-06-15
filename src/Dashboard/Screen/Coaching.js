@@ -52,9 +52,8 @@ const Coaching = props => {
             <Text
               style={{
                 fontSize: 35,
-                padding: 10, 
+                padding: 10,
                 color: '#ffff',
-                
               }}>
               {user.Goal}
             </Text>
@@ -84,9 +83,112 @@ const Coaching = props => {
       </LinearGradient>
       <View style={styles.bottom}>
         <View style={styles.bottomContainer}>
+          {/* ====================================================================================== */}
 
+          <View style={{flexDirection: 'row', marginTop: 20}}>
+            <View
+              style={{
+                justifyContent: 'center',
+                backgroundColor: '#E7EEF7',
+                borderRadius: 16,
+                padding: 10,
+                shadowColor: '#000000',
+                shadowOffset: {
+                  width: 0,
+                  height: 7,
+                },
+                shadowOpacity: 0.07,
+                shadowRadius: 4,
+                elevation: 2,
+              }}>
+              <Image
+                resizeMode="cover"
+                source={require('../../assets/item1.png')}
+                style={{width: 114, height: 114}}
+              />
+              <View style={{padding: 10, justify: 'space-between'}}>
+                <Text>Modern Helmet HO3</Text>
+              </View>
+            </View>
+            <View
+              style={{
+                justifyContent: 'center',
+                backgroundColor: '#E7EEF7',
+                borderRadius: 16,
+                padding: 10,
+                marginLeft:10,
+                shadowColor: '#000000',
+                shadowOffset: {
+                  width: 0,
+                  height: 7,
+                },
+                shadowOpacity: 0.07,
+                shadowRadius: 4,
+                elevation: 2,
+              }}>
+              <Image
+                resizeMode="cover"
+                source={require('../../assets/item1.png')}
+                style={{width: 114, height: 114}}
+              />
+              <View style={{padding: 10, justify: 'space-between'}}>
+                <Text>Modern Helmet HO3</Text>
+              </View>
+            </View>
+          </View>
+          <View style={{flexDirection: 'row', marginTop: 20}}>
+            <View
+              style={{
+                justifyContent: 'center',
+                backgroundColor: '#E7EEF7',
+                borderRadius: 16,
+                padding: 10,
+                shadowColor: '#000000',
+                shadowOffset: {
+                  width: 0,
+                  height: 7,
+                },
+                shadowOpacity: 0.07,
+                shadowRadius: 4,
+                elevation: 2,
+              }}>
+              <Image
+                resizeMode="cover"
+                source={require('../../assets/item1.png')}
+                style={{width: 114, height: 114}}
+              />
+              <View style={{padding: 10, justify: 'space-between'}}>
+                <Text>Modern Helmet HO3</Text>
+              </View>
+            </View>
+            <View
+              style={{
+                justifyContent: 'center',
+                backgroundColor: '#E7EEF7',
+                borderRadius: 16,
+                padding: 10,
+                marginLeft:10,
+                shadowColor: '#000000',
+                shadowOffset: {
+                  width: 0,
+                  height: 7,
+                },
+                shadowOpacity: 0.07,
+                shadowRadius: 4,
+                elevation: 2,
+              }}>
+              <Image
+                resizeMode="cover"
+                source={require('../../assets/item1.png')}
+                style={{width: 114, height: 114}}
+              />
+              <View style={{padding: 10, justify: 'space-between'}}>
+                <Text>Modern Helmet HO3</Text>
+              </View>
+            </View>
+          </View>
 
-          
+          {/* ========================================================================================== */}
         </View>
       </View>
     </ScrollView>

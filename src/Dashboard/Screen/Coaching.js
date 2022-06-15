@@ -78,13 +78,27 @@ const Coaching = props => {
                 Current weight:{user.Weight}KG
               </Text>
             </View>
+            
+          </View>
+          <View style={styles.containerFourth}>
+            <View style={styles.statusContainer}>
+              <Text style={styles.statusText}>Total Check</Text>
+              <Text style={styles.statusText}>{CheckInStatus.total}</Text>
+            </View>
+            <View style={styles.statusContainer}>
+              <Text style={styles.statusText}>Next CheckIn in</Text>
+              <Text style={styles.statusText}>
+                {CheckInStatus.nextCheckIns} days
+              </Text>
+            </View>
           </View>
         </View>
       </LinearGradient>
       <View style={styles.bottom}>
         <View style={styles.bottomContainer}>
           {/* ====================================================================================== */}
-
+         
+          
           <View style={{flexDirection: 'row', marginTop: 20}}>
             <View
               style={{
@@ -116,7 +130,7 @@ const Coaching = props => {
                 backgroundColor: '#E7EEF7',
                 borderRadius: 16,
                 padding: 10,
-                marginLeft:10,
+                marginLeft: 10,
                 shadowColor: '#000000',
                 shadowOffset: {
                   width: 0,
@@ -167,7 +181,7 @@ const Coaching = props => {
                 backgroundColor: '#E7EEF7',
                 borderRadius: 16,
                 padding: 10,
-                marginLeft:10,
+                marginLeft: 10,
                 shadowColor: '#000000',
                 shadowOffset: {
                   width: 0,
@@ -186,6 +200,39 @@ const Coaching = props => {
                 <Text>Modern Helmet HO3</Text>
               </View>
             </View>
+          </View>
+
+          <View style={styles.checkInButton}>
+            {CheckInStatus.avalible ? (
+              <TouchableOpacity
+                style={{
+                  backgroundColor: 'blue',
+                  // width: 200,
+                  // height: 40,
+                  borderRadius: 15,
+                  position: 'relative',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: 20,
+                }}
+                onPress={() => {
+                  navigation.push('CheckIn1');
+                }}>
+                <Text
+                  style={{
+                    fontSize: 18,
+                    fontFamily: 'Gill Sans',
+                    textAlign: 'center',
+                    margin: 10,
+                    color: '#ffffff',
+                    backgroundColor: 'transparent',
+                  }}>
+                  Check in
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <Text></Text>
+            )}
           </View>
 
           {/* ========================================================================================== */}
